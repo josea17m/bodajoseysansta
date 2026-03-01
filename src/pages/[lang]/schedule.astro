@@ -1,0 +1,199 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<!-- Custom Footer specifically without Zola but following the layout -->
+<footer class="mini-footer">
+  <div class="heart-logo">
+    <span class="names-logo">J&S</span>
+    <svg
+      viewBox="0 0 40 20"
+      width="30"
+      height="15"
+      fill="none"
+      stroke="var(--text-accent)"
+      stroke-width="2"
+      style="margin-left: 5px;">
+      <path d="M10 10 A5 5 0 1 1 20 10 A5 5 0 1 1 30 10 A5 5 0 1 1 10 10"
+      ></path>
+    </svg>
+  </div>
+  <p class="tagline">Para todos los días en el camino</p>
+
+  <nav class="footer-nav">
+    <a href="/">Inicio</a>
+    <a href="/faqs">Preguntas</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <p class="credits">josealeysansta@email.com</p>
+</footer>
+
+<style>
+  .page-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 100px 20px 40px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    color: var(--text-accent);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    margin-bottom: 25px;
+  }
+
+  .schedule-intro {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+
+  .schedule-date {
+    font-family: var(--font-heading);
+    color: var(--text-accent);
+    font-size: 1.4rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  .event-divider {
+    margin: 30px 0;
+  }
+
+  .event-section {
+    margin-bottom: 40px;
+  }
+
+  .event-title {
+    font-family: var(--font-heading);
+    color: var(--text-accent);
+    font-size: 1.2rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 10px;
+  }
+
+  .event-time {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-meta);
+    margin-bottom: 20px;
+  }
+
+  .event-venue {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+  }
+
+  .event-address {
+    margin-bottom: 25px;
+  }
+
+  .address-link {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-style: italic;
+    color: #6c7a65; /* A bit of olive green for the link */
+    text-decoration: underline;
+    text-decoration-color: #6c7a65;
+    text-underline-offset: 3px;
+  }
+
+  .event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn-action {
+    display: inline-block;
+    width: 100%;
+    max-width: 280px;
+    padding: 12px 0;
+    background-color: #6c7a65; /* Olive green from the reference */
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-action:hover {
+    background-color: #5a6654;
+  }
+
+  /* Base footer replacement for inner pages */
+  .separator-small {
+    margin: 60px 0 40px;
+  }
+
+  .mini-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+  }
+
+  .heart-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .names-logo {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+  }
+
+  .tagline {
+    font-size: 0.85rem;
+    color: var(--text-meta);
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  .footer-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .credits,
+  .copyright {
+    font-size: 0.75rem;
+    color: var(--text-meta);
+  }
+</style>

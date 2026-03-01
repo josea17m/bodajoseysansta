@@ -1,0 +1,78 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+d="M12 28 C 15 20, 25 15, 30 10 C 27 18, 20 23, 15 28 Z" fill="#758B70">
+<path d="M12 28 C 8 22, 12 14, 18 10 C 18 18, 14 24, 12 28 Z" fill="#8CA486"
+></path>
+
+<p class="names-bottom">Jose Ale & Sansta</p>
+
+<style>
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    color: var(--text-accent);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+  }
+
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.02);
+  }
+
+  .separator-small {
+    margin: 40px 0 20px;
+  }
+
+  .names-bottom {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+  }
+</style>
