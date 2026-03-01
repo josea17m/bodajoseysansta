@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Galería - Jose Ale & Sansta">
+  <header class="header">
+    <button class="menu-btn" aria-label="Menú">
+      <svg
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        class="menu-icon">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+
+  <main class="page-content">
+    <h1 class="page-title">G A L E R Í A</h1>
+
+    <div class="gallery-grid">
+      <!-- Placeholders for gallery photos (to be replaced with actual image files if provided later) -->
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x500/?couple,wedding"
+          alt="Gallery Image 1"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x400/?couple,love"
+          alt="Gallery Image 2"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x600/?couple,happy"
+          alt="Gallery Image 3"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x450/?couple,hug"
+          alt="Gallery Image 4"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x550/?couple,kiss"
+          alt="Gallery Image 5"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x400/?couple,smile"
+          alt="Gallery Image 6"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x600/?couple,romance"
+          alt="Gallery Image 7"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x500/?couple,nature"
+          alt="Gallery Image 8"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x450/?couple,portrait"
+          alt="Gallery Image 9"
+          loading="lazy"
+        />
+      </div>
+      <div class="gallery-item">
+        <img
+          src="https://source.unsplash.com/random/400x400/?couple,travel"
+          alt="Gallery Image 10"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="separator-small">
+      <svg
+        viewBox="0 0 40 40"
+        width="30"
+        height="30"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 28 C 15 20, 25 15, 30 10 C 27 18, 20 23, 15 28 Z"
+          fill="#758B70"></path>
+        <path
+          d="M12 28 C 8 22, 12 14, 18 10 C 18 18, 14 24, 12 28 Z"
+          fill="#8CA486"></path>
+      </svg>
+    </div>
+
+    <p class="names-bottom">Jose Ale & Sansta</p>
+  </main>
+</Layout>
+
+<style>
+  .page-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 60px;
+    text-align: center;
+  }
+
+  .page-title {
+    font-family: var(--font-heading);
+    color: var(--text-accent);
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    margin-bottom: 40px;
+  }
+
+  .gallery-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .gallery-item {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.02);
+  }
+
+  .separator-small {
+    margin: 40px 0 20px;
+  }
+
+  .names-bottom {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+  }
+</style>

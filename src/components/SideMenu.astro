@@ -1,0 +1,154 @@
+---
+const { title } = Astro.props;
+export interface Props {
+  title: string;
+}
+---
+
+<div class="side-menu" id="sideMenu">
+  <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">
+    <svg
+      viewBox="0 0 24 24"
+      width="28"
+      height="28"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <div class="menu-header">
+    <h3>Jose Ale & Sansta</h3>
+    <p class="menu-date">24 de Julio, 2026</p>
+    <p class="menu-location">Spring Branch, TX</p>
+  </div>
+  <nav class="menu-nav">
+    <a href="/">Inicio</a>
+    <a href="/schedule">Itinerario</a>
+    <a href="/registry">Mesa de Regalos</a>
+    <a href="/gallery">Galería</a>
+    <a href="/faqs">Preguntas Frecuentes</a>
+  </nav>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuBtn = document.querySelector(".menu-btn");
+    const closeBtn = document.getElementById("closeBtn");
+    const sideMenu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("menuOverlay");
+
+    function openMenu() {
+      if (sideMenu && overlay) {
+        sideMenu.classList.add("open");
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+    }
+
+    function closeMenu() {
+      if (sideMenu && overlay) {
+        sideMenu.classList.remove("open");
+        overlay.classList.remove("open");
+        document.body.style.overflow = ""; // Restore scrolling
+      }
+    }
+
+    if (menuBtn) menuBtn.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (overlay) overlay.addEventListener("click", closeMenu);
+  });
+</script>
+
+<style>
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    transition: right 0.3s ease-in-out;
+    padding: 80px 40px 40px;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .side-menu.open {
+    right: 0;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+  }
+
+  .menu-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+  }
+
+  .menu-header h3 {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+  }
+
+  .menu-date,
+  .menu-location {
+    font-family: var(--font-body);
+    color: var(--text-meta);
+    font-size: 0.95rem;
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .menu-nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .menu-nav a:hover {
+    color: var(--text-accent);
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease-in-out,
+      visibility 0.3s ease-in-out;
+  }
+
+  .menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+import SideMenu from "../components/SideMenu.astro";
+import "../styles/global.css";
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <SideMenu title={title} />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --text-primary: #594e46; /* Charcoal/Dark Brown */
+    --text-accent: #c4917c; /* Rose gold / copper */
+    --text-meta: #7f7f7f;
+    --bg-color: #ffffff;
+    --font-heading: "Cormorant Garamond", serif;
+    --font-body: "Inter", sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Header & Menu */
+  .header {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  .menu-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s ease;
+  }
+
+  .menu-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .menu-icon {
+    stroke: var(--text-primary);
+  }
+</style>
