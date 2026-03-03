@@ -57,30 +57,18 @@ const translatePath = useTranslatedPath(lang);
   </section>
 
   <main class="content">
-    <section class="names-section relative py-12">
-      <h1
-        class="names drop-shadow-sm font-serif text-5xl md:text-6xl text-[#c4917c] tracking-widest flex flex-col items-center mb-6">
-        <span class="name">{t("home.hero.names")}</span>
-        <span class="ampersand text-2xl my-4 text-gray-400 font-light"
-          >{t("home.hero.and")}</span
+    <section class="names-section">
+      <h1 class="names">
+        <span class="name"
+          >{t("home.hero.names").split(" ")[0]}
+          {t("home.hero.names").split(" ")[1]}</span
         >
+        <span class="ampersand">{t("home.hero.and")}</span>
         <span class="name">{t("home.hero.sansta")}</span>
       </h1>
-      <p class="hashtag font-serif italic text-gray-500 text-xl mb-10">
-        {t("home.hero.hashtag")}
-      </p>
-
-      <div
-        class="inline-block border-y border-gray-200 py-6 px-12 mb-8 bg-[#faf9f6]/50 rounded-lg shadow-sm">
-        <h2
-          class="date font-serif text-[#c4917c] text-2xl md:text-3xl tracking-[0.2em] mb-4 uppercase">
-          {t("home.hero.date")}
-        </h2>
-        <p
-          class="location-short text-gray-700 tracking-wider text-sm md:text-base uppercase">
-          {t("home.hero.location")}
-        </p>
-      </div>
+      <p class="hashtag">{t("home.hero.hashtag")}</p>
+      <h2 class="date">{t("home.hero.date")}</h2>
+      <p class="location-short">{t("home.hero.location")}</p>
 
       <div class="countdown" id="countdown">
         <!-- Javascript will populate this -->
@@ -103,41 +91,18 @@ const translatePath = useTranslatedPath(lang);
       </svg>
     </div>
 
-    <section
-      class="venue-section bg-white p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100 relative overflow-hidden">
-      <!-- Decorative corner accents -->
-      <div
-        class="absolute top-0 left-0 w-8 h-8 border-t border-l border-[#c4917c]/30">
-      </div>
-      <div
-        class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-[#c4917c]/30">
-      </div>
-
-      <h3
-        class="section-title text-[#c4917c] font-serif tracking-[0.25em] text-xl mb-6 uppercase">
-        {t("home.venue.ceremony.title")}
-      </h3>
-      <p class="venue-name font-semibold text-lg text-gray-800 mb-2">
-        {t("home.venue.ceremony.name")}
-      </p>
-      <p class="venue-address text-gray-500 leading-relaxed">
+    <section class="venue-section">
+      <h3 class="section-title">{t("home.venue.ceremony.title")}</h3>
+      <p class="venue-name">{t("home.venue.ceremony.name")}</p>
+      <p class="venue-address">
         19220 Beechnut St Hall A<br />Richmond, TX 77407
       </p>
 
-      <div class="h-12 flex justify-center items-center">
-        <span class="w-12 h-px bg-gray-200 block"></span>
-      </div>
+      <div style="height: 40px;"></div>
 
-      <h3
-        class="section-title text-[#c4917c] font-serif tracking-[0.25em] text-xl mb-6 uppercase">
-        {t("home.venue.reception.title")}
-      </h3>
-      <p class="venue-name font-semibold text-lg text-gray-800 mb-2">
-        {t("home.venue.reception.name")}
-      </p>
-      <p class="venue-address text-gray-500 leading-relaxed">
-        1001 W 18th St<br />Houston, TX 77008
-      </p>
+      <h3 class="section-title">{t("home.venue.reception.title")}</h3>
+      <p class="venue-name">{t("home.venue.reception.name")}</p>
+      <p class="venue-address">1001 W 18th St<br />Houston, TX 77008</p>
     </section>
 
     <div class="separator">
@@ -156,15 +121,10 @@ const translatePath = useTranslatedPath(lang);
       </svg>
     </div>
 
-    <section class="story-section pb-10">
-      <h3
-        class="section-title text-[#c4917c] font-serif tracking-[0.25em] text-2xl mb-8 uppercase">
-        {t("home.story.title")}
-      </h3>
-      <div
-        class="story-text text-gray-600 leading-loose text-justify max-w-lg mx-auto font-body space-y-6">
-        <p
-          class="first-letter:text-5xl first-letter:font-serif first-letter:text-[#c4917c] first-letter:mr-3 first-letter:float-left">
+    <section class="story-section">
+      <h3 class="section-title">{t("home.story.title")}</h3>
+      <div class="story-text">
+        <p>
           {t("home.story.p1")}
         </p>
         <p>
@@ -190,54 +150,32 @@ const translatePath = useTranslatedPath(lang);
     </div>
   </main>
 
-  <footer
-    class="mini-footer bg-[#faf9f6]/80 mt-16 pt-12 pb-16 flex flex-col items-center gap-6 border-t border-gray-100">
-    <div class="heart-logo flex items-center justify-center mb-2">
-      <span
-        class="names-logo font-serif text-2xl tracking-widest text-[#c4917c]"
-        >J&S</span
-      >
+  <footer class="mini-footer">
+    <div class="heart-logo">
+      <span class="names-logo">J&S</span>
       <svg
         viewBox="0 0 40 20"
         width="30"
         height="15"
         fill="none"
-        stroke="#c4917c"
-        stroke-width="1.5"
-        class="ml-2 opacity-60">
+        stroke="var(--text-accent)"
+        stroke-width="2"
+        style="margin-left: 5px;">
         <path d="M10 10 A5 5 0 1 1 20 10 A5 5 0 1 1 30 10 A5 5 0 1 1 10 10"
         ></path>
       </svg>
     </div>
-    <p
-      class="tagline text-gray-400 italic font-serif tracking-widest text-sm uppercase">
-      {t("footer.tagline")}
-    </p>
 
-    <nav class="footer-nav flex gap-8 justify-center my-4">
-      <a
-        href={translatePath("/gallery")}
-        class="text-sm tracking-widest text-gray-500 hover:text-[#c4917c] transition-colors"
-        >{t("nav.gallery")}</a
-      >
-      <a
-        href={translatePath("/faqs")}
-        class="text-sm tracking-widest text-gray-500 hover:text-[#c4917c] transition-colors"
-        >{t("nav.faqs")}</a
-      >
-      <a
-        href={translatePath("/schedule")}
-        class="text-sm tracking-widest text-gray-500 hover:text-[#c4917c] transition-colors"
-        >{t("nav.schedule")}</a
-      >
+    <p class="tagline">{t("footer.tagline")}</p>
+
+    <nav class="footer-nav">
+      <a href={translatePath("/gallery")}>{t("nav.gallery")}</a>
+      <a href={translatePath("/faqs")}>{t("nav.faqs")}</a>
+      <a href={translatePath("/schedule")}>{t("nav.schedule")}</a>
+      <a href={translatePath("/registry")}>{t("nav.registry")}</a>
     </nav>
 
-    <div class="text-center mt-4">
-      <p class="credits text-xs text-gray-400 mb-2">josealeysansta@email.com</p>
-      <p class="credits text-xs text-gray-300">
-        © 2026 Jose Ale & Sansta. {t("footer.rights")}
-      </p>
-    </div>
+    <p class="credits">josealeysansta@email.com</p>
   </footer>
 </Layout>
 
@@ -281,7 +219,7 @@ const translatePath = useTranslatedPath(lang);
       if (!countdownElement) return;
 
       if (distance < 0) {
-        countdownElement.innerHTML = `<span class="text-xl font-serif text-[#c4917c]">${countdownTranslations.ready}</span>`;
+        countdownElement.innerHTML = countdownTranslations.ready;
         return;
       }
 
@@ -293,12 +231,10 @@ const translatePath = useTranslatedPath(lang);
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       countdownElement.innerHTML = `
-                <div class="flex gap-6 justify-center text-gray-600 font-serif mt-2">
-                  <div class="flex flex-col items-center"><span class="text-3xl font-medium text-[#c4917c] mb-1">${days}</span><span class="text-xs tracking-widest text-gray-400 uppercase">${countdownTranslations.days}</span></div>
-                  <div class="flex flex-col items-center"><span class="text-3xl font-medium text-[#c4917c] mb-1">${hours}</span><span class="text-xs tracking-widest text-gray-400 uppercase">${countdownTranslations.hours}</span></div>
-                  <div class="flex flex-col items-center"><span class="text-3xl font-medium text-[#c4917c] mb-1">${minutes}</span><span class="text-xs tracking-widest text-gray-400 uppercase">${countdownTranslations.minutes}</span></div>
-                  <div class="flex flex-col items-center"><span class="text-3xl font-medium text-[#c4917c] mb-1">${seconds}</span><span class="text-xs tracking-widest text-gray-400 uppercase">${countdownTranslations.seconds}</span></div>
-                </div>
+                <span><span class="time-val">${days}</span> ${countdownTranslations.days}</span>
+                <span><span class="time-val">${hours}</span> ${countdownTranslations.hours}</span>
+                <span><span class="time-val">${minutes}</span> ${countdownTranslations.minutes}</span>
+                <span><span class="time-val">${seconds}</span> ${countdownTranslations.seconds}</span>
             `;
     }
 
@@ -313,8 +249,7 @@ const translatePath = useTranslatedPath(lang);
     position: relative;
     width: 100vw;
     height: 45vh;
-    min-height: 400px;
-    max-height: 600px;
+    max-height: 500px;
     overflow: hidden;
   }
 
@@ -338,7 +273,7 @@ const translatePath = useTranslatedPath(lang);
 
   /* Main Content Wrapper */
   .content {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 60px 20px;
     text-align: center;

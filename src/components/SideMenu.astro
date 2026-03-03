@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
-<nav class="side-menu" id="sideMenu">
+<div class="side-menu" id="sideMenu">
   <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">
     <svg
       viewBox="0 0 24 24"
@@ -23,22 +23,29 @@ const translatePath = useTranslatedPath(lang);
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   </button>
-  >
-  <span class="text-gray-300">|</span>
-  <a
-    href={translatePath("/", "en")}
-    class={`hover:text-[#c4917c] transition-colors ${lang === "en" ? "font-bold text-[#c4917c]" : "text-gray-500"}`}
-    >EN</a
-  >
-</nav>
-
-<nav class="menu-nav">
-  <a href={translatePath("/")}>{t("nav.home")}</a>
-  <a href={translatePath("/schedule")}>{t("nav.schedule")}</a>
-  <a href={translatePath("/registry")}>{t("nav.registry")}</a>
-  <a href={translatePath("/gallery")}>{t("nav.gallery")}</a>
-  <a href={translatePath("/faqs")}>{t("nav.faqs")}</a>
-</nav>
+  <div class="menu-header">
+    <h3>{t("home.hero.names").split(" ")[0]} & {t("home.hero.sansta")}</h3>
+    <p class="menu-date">{t("home.hero.date")}</p>
+    <div class="lang-switch">
+      <a
+        href={translatePath("/", "es")}
+        class={lang === "es" ? "active-lang" : ""}>ES</a
+      >
+      <span>|</span>
+      <a
+        href={translatePath("/", "en")}
+        class={lang === "en" ? "active-lang" : ""}>EN</a
+      >
+    </div>
+  </div>
+  <nav class="menu-nav">
+    <a href={translatePath("/")}>{t("nav.home")}</a>
+    <a href={translatePath("/schedule")}>{t("nav.schedule")}</a>
+    <a href={translatePath("/registry")}>{t("nav.registry")}</a>
+    <a href={translatePath("/gallery")}>{t("nav.gallery")}</a>
+    <a href={translatePath("/faqs")}>{t("nav.faqs")}</a>
+  </nav>
+</div>
 
 <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -120,6 +127,31 @@ const translatePath = useTranslatedPath(lang);
     font-family: var(--font-body);
     color: var(--text-meta);
     font-size: 0.95rem;
+  }
+
+  .lang-switch {
+    margin-top: 15px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-meta);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .lang-switch a {
+    text-decoration: none;
+    color: var(--text-meta);
+    transition: color 0.2s ease;
+  }
+
+  .lang-switch a.active-lang {
+    color: var(--text-accent);
+    font-weight: 600;
+  }
+
+  .lang-switch a:hover {
+    color: var(--text-accent);
   }
 
   .menu-nav {
