@@ -1,0 +1,117 @@
+
+────────────────────────────┐
+ Current Netlify Projects │
+────────────────────────────┘
+
+Count: 27
+
+josealeysansta - 4ac9a1b6-6a3c-4631-9a43-79d95f5b5772
+  url:  https://josealeysansta.netlify.app
+  repo: https://github.com/josea17m/bodajoseysansta
+  account: josea17m
+─────────────────────────────────────────────────
+gastos-sanstajoseale - 77354066-237e-43fc-8fdf-d5ed345a3364
+  url:  https://gastos-sanstajoseale.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+sanstayjoseale - 5aa919c8-639c-4236-8104-64f85d6c365b
+  url:  https://sanstayjoseale.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+spartadatagenerator - 77c8f0c3-10d7-44c3-b1d4-ec413900426c
+  url:  https://spartadatagenerator.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+calendlystripetest - fb64406f-65de-47a5-9b26-abebebfce27f
+  url:  https://calendlystripetest.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+pv-acm - 5f0c98f3-8536-4d47-a270-54c90626f44e
+  url:  https://pv-acm.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+cuandotunovioesprogramador - c41c9fd0-447a-4926-8426-bdf7cf4e2a95
+  url:  https://cuandotunovioesprogramador.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+reto-biblico-remake - ea3cd7c7-ab62-48f5-b2ea-eef0f312fc60
+  url:  https://reto-biblico-remake.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+monteropoolservice - 1530553a-2ad2-4491-9356-5802d84bae1a
+  url:  https://mntpoolservice.com
+  account: josea17m
+─────────────────────────────────────────────────
+portfolio-josea - 0950f193-6c3d-4e0d-81e7-3cf641755fa9
+  url:  https://cv.josea17m.me
+  account: josea17m
+─────────────────────────────────────────────────
+your-budget-app-josea - 8512b197-592c-4606-a03c-66ed3a48c653
+  url:  https://your-budget-app-josea.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+javiservices - ddf0299a-3445-4ffe-a7f5-518565cd6bb4
+  url:  https://javiservices.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+bluehorizonpool - 064ba3dc-67f4-46ec-b5a0-5b8755219d81
+  url:  https://bluehorizonpool.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+pruebas-josea - e15eb10f-e8ac-41c8-b1e6-cd8f6e229b20
+  url:  https://pruebas-josea.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+magicars - 1711a12f-5152-4004-9f87-80fb5db53165
+  url:  https://magicars.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+portfolio-josea17m-v3 - 18277a0d-45af-45cc-a4dd-d880bf5c36fe
+  url:  https://portfolio-josea17m-v3.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+portofolio-josea17m-v3 - f433a732-6fca-4341-a795-8c983d0570d7
+  url:  https://portofolio-josea17m-v3.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+block-de-notas-v2 - 5911ac81-509c-412d-a473-1c15ab80614c
+  url:  https://block-de-notas-v2.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+control-de-gastos-ja - f99958a7-b197-45b8-965c-29ae4019e46d
+  url:  https://control-de-gastos-ja.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+portafolio-josea17m-v2 - 826f26ef-56e1-4f6b-9fb8-a76fa7386a97
+  url:  https://portafolio-josea17m-v2.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+reto-biblico - bbea846d-5515-4286-a74d-aebfe3970ae4
+  url:  https://reto-biblico.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+control-de-pedidos - e0d4823e-4f76-4ae9-b32a-89d4a0a791be
+  url:  https://control-de-pedidos.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+block-de-notas - 3642b401-f357-4c8a-8b41-b6b18e648404
+  url:  https://block-de-notas.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+kebisuyjoyeria - 020c9009-aeed-43e7-84f8-aceb42466f91
+  url:  https://kebisuyjoyeria.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+to-do-list-josea17m - aa7da30c-1490-4be2-9fe3-ed030e36d792
+  url:  https://to-do-list-josea17m.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+veterinariaja-pacientes - ac901563-54b9-4e6c-8957-fd36355a0f14
+  url:  https://veterinariaja-pacientes.netlify.app
+  account: josea17m
+─────────────────────────────────────────────────
+portafolio-josea17m - 2a71be42-161f-4df3-a60e-e5c02d6d67e5
+  url:  https://portafolio-josea17m.netlify.app
+  repo: https://github.com/josea17m/josea17m.github.io
+  account: josea17m
+─────────────────────────────────────────────────
