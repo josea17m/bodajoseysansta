@@ -25,9 +25,15 @@ const lang = getLangFromUrl(Astro.url);
     />
   </head>
   <body>
-    
     <SideMenu title={title} />
     <slot />
+    <script define:vars={{ currentLang: lang }}>
+      try {
+        localStorage.setItem("preferredLang", currentLang);
+      } catch {
+        // Ignore storage errors so the page still renders normally.
+      }
+    </script>
   </body>
 </html>
 

@@ -6,6 +6,22 @@ export function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
+export function getPathWithoutLangFromUrl(url: URL) {
+  const lang = getLangFromUrl(url);
+  const path = url.pathname;
+  const langPrefix = `/${lang}`;
+
+  if (path === langPrefix || path === `${langPrefix}/`) {
+    return "/";
+  }
+
+  if (path.startsWith(`${langPrefix}/`)) {
+    return path.slice(langPrefix.length);
+  }
+
+  return path || "/";
+}
+
 export function useTranslations(lang: keyof typeof ui) {
   return function t(key: keyof (typeof ui)[typeof defaultLang]) {
     return ui[lang][key] || ui[defaultLang][key];

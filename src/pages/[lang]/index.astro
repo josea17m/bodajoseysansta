@@ -47,7 +47,7 @@ const translatePath = useTranslatedPath(lang);
     </div>
   </div>
   <header class="header">
-    <button class="menu-btn" aria-label="Menú">
+    <button class="menu-btn" aria-label={t("nav.openMenu")}>
       <svg
         viewBox="0 0 24 24"
         width="24"
@@ -218,14 +218,17 @@ const translatePath = useTranslatedPath(lang);
     document.addEventListener("DOMContentLoaded", () => {
       // Language Popup Logic
       const languagePopup = document.getElementById("languagePopup");
-      if (languagePopup && !localStorage.getItem("languageSelected")) {
+      if (languagePopup && !localStorage.getItem("preferredLang")) {
         languagePopup.classList.remove("hidden");
       }
 
       const langButtons = document.querySelectorAll(".btn-popup-lang");
       langButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          localStorage.setItem("languageSelected", "true");
+          const selectedLang = btn.getAttribute("data-lang");
+          if (selectedLang) {
+            localStorage.setItem("preferredLang", selectedLang);
+          }
         });
       });
 

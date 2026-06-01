@@ -1,6 +1,49 @@
 ---
 import { defaultLang } from "../i18n/ui";
-
-// Redirect to the default language.
-return Astro.redirect(`/${defaultLang}`);
 ---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting...</title>
+    <script define:vars={{ defaultLang }}>
+      const supportedLangs = new Set(["es", "en"]);
+
+      function getPreferredLang() {
+        try {
+          const storedLang = localStorage.getItem("preferredLang");
+          if (storedLang && supportedLangs.has(storedLang)) {
+            return storedLang;
+          }
+        } catch {
+          // Ignore storage errors and fall back to browser language.
+        }
+
+        const browserLang = navigator.language.toLowerCase().startsWith("en")
+          ? "en"
+          : defaultLang;
+
+        try {
+          localStorage.setItem("preferredLang", browserLang);
+        } catch {
+          // Ignore storage errors and continue with the redirect.
+        }
+
+        return browserLang;
+      }
+
+      window.location.replace(`/${getPreferredLang()}/`);
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`} />
+    </noscript>
+  </head>
+  <body>
+    <p>
+      Redirecting...
+      <a href={`/${defaultLang}/`}>Continue</a>
+    </p>
+  </body>
+</html>

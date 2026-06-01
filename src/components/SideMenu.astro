@@ -1,17 +1,19 @@
 ---
 import {
+  getPathWithoutLangFromUrl,
   getLangFromUrl,
   useTranslations,
   useTranslatedPath,
 } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
+const currentPath = getPathWithoutLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 ---
 
 <div class="side-menu" id="sideMenu">
-  <button class="close-btn" id="closeBtn" aria-label="Cerrar menú">
+  <button class="close-btn" id="closeBtn" aria-label={t("nav.closeMenu")}>
     <svg
       viewBox="0 0 24 24"
       width="28"
@@ -28,12 +30,12 @@ const translatePath = useTranslatedPath(lang);
     <p class="menu-date">{t("home.hero.date")}</p>
     <div class="lang-switch">
       <a
-        href={translatePath("/", "es")}
+        href={translatePath(currentPath, "es")}
         class={lang === "es" ? "active-lang" : ""}>ES</a
       >
       <span>|</span>
       <a
-        href={translatePath("/", "en")}
+        href={translatePath(currentPath, "en")}
         class={lang === "en" ? "active-lang" : ""}>EN</a
       >
     </div>

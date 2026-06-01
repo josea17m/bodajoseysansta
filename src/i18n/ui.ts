@@ -13,6 +13,8 @@ export const ui = {
     "nav.gallery": "Galería",
     "nav.faqs": "Preguntas Frecuentes",
     "nav.rsvp": "Confirmar Asistencia",
+    "nav.openMenu": "Abrir menú",
+    "nav.closeMenu": "Cerrar menú",
     "home.hero.names": "JOSE ALE",
     "home.hero.and": "&",
     "home.hero.sansta": "SANSTA",
@@ -57,6 +59,7 @@ export const ui = {
     "registry.amazon": "Mesa de Regalos Amazon",
     "registry.amazon.desc":
       "Encuentra nuestra lista de artículos seleccionados en Amazon.",
+    "registry.amazon.cta": "Ver mesa de regalos",
 
     // Gallery Page
     "gallery.title": "G A L L E R Í A",
@@ -99,6 +102,8 @@ export const ui = {
     "nav.gallery": "Gallery",
     "nav.faqs": "FAQs",
     "nav.rsvp": "RSVP",
+    "nav.openMenu": "Open menu",
+    "nav.closeMenu": "Close menu",
     "home.hero.names": "JOSE ALE",
     "home.hero.and": "&",
     "home.hero.sansta": "SANSTA",
@@ -142,6 +147,7 @@ export const ui = {
     "registry.bank.bankName": "Bank: BBVA",
     "registry.amazon": "Amazon Registry",
     "registry.amazon.desc": "Find our curated list of items on Amazon.",
+    "registry.amazon.cta": "View registry",
 
     // Gallery Page
     "gallery.title": "G A L L E R Y",

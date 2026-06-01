@@ -17,7 +17,7 @@ const translatePath = useTranslatedPath(lang);
 
 <Layout title={t("registry.title") + " - Sansta & Jose Ale"}>
   <header class="header">
-    <button class="menu-btn" aria-label="Menú">
+    <button class="menu-btn" aria-label={t("nav.openMenu")}>
       <svg
         viewBox="0 0 24 24"
         width="24"
@@ -57,7 +57,12 @@ const translatePath = useTranslatedPath(lang);
         style="color: var(--text-meta); font-size: 0.95rem; margin-bottom: 25px;">
         {t("registry.amazon.desc")}
       </p>
-      <a href="#" class="btn-action">Ver mesa de regalos</a>
+      <a
+        href="https://www.amazon.com/wedding/guest-view/1TB8MRZ8XR7PW"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-action">{t("registry.amazon.cta")}</a
+      >
     </section>
 
     <div class="separator-small">
