@@ -24,7 +24,7 @@ const translatePath = useTranslatedPath(lang);
     </svg>
   </button>
   <div class="menu-header">
-    <h3>{t("home.hero.names").split(" ")[0]} & {t("home.hero.sansta")}</h3>
+    <h3>{t("home.hero.sansta")} & {t("home.hero.names").split(" ")[0]}</h3>
     <p class="menu-date">{t("home.hero.date")}</p>
     <div class="lang-switch">
       <a
@@ -44,6 +44,7 @@ const translatePath = useTranslatedPath(lang);
     <a href={translatePath("/registry")}>{t("nav.registry")}</a>
     <a href={translatePath("/gallery")}>{t("nav.gallery")}</a>
     <a href={translatePath("/faqs")}>{t("nav.faqs")}</a>
+    <a href={translatePath("/rsvp")} class="rsvp-link">{t("nav.rsvp")}</a>
   </nav>
 </div>
 
@@ -170,6 +171,11 @@ const translatePath = useTranslatedPath(lang);
 
   .menu-nav a:hover {
     color: var(--text-accent);
+  }
+
+  .menu-nav a.rsvp-link {
+    color: var(--text-accent);
+    font-weight: 600;
   }
 
   .menu-overlay {

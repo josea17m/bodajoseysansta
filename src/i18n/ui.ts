@@ -12,6 +12,7 @@ export const ui = {
     "nav.registry": "Mesa de Regalos",
     "nav.gallery": "Galería",
     "nav.faqs": "Preguntas Frecuentes",
+    "nav.rsvp": "Confirmar Asistencia",
     "home.hero.names": "JOSE ALE",
     "home.hero.and": "&",
     "home.hero.sansta": "SANSTA",
@@ -73,6 +74,23 @@ export const ui = {
     "faq.q3": "¿Puedo tomar fotos durante la ceremonia?",
     "faq.a3":
       "Sí, por supuesto. Sin embargo ascerquense a sus asientos para no obstruir la vista ni la labor de nuestros fotógrafos.",
+
+    // RSVP Page
+    "rsvp.title": "C O N F I R M A R   A S I S T E N C I A",
+    "rsvp.intro":
+      "Nos encantaría contar con su presencia. Por favor confirmen su asistencia antes del 1 de julio de 2026.",
+    "rsvp.name": "Nombre completo",
+    "rsvp.email": "Correo electrónico",
+    "rsvp.attending": "¿Nos acompañarán?",
+    "rsvp.attending.yes": "Sí, ahí estaré",
+    "rsvp.attending.no": "Lo siento, no podré asistir",
+    "rsvp.guests": "Número de invitados (incluyéndote)",
+    "rsvp.message": "Mensaje para los novios (opcional)",
+    "rsvp.submit": "Enviar Confirmación",
+    "rsvp.success.title": "¡Gracias!",
+    "rsvp.success.message":
+      "Hemos recibido su confirmación. ¡Estamos muy emocionados de celebrar con ustedes!",
+    "rsvp.required": "Este campo es obligatorio",
   },
   en: {
     "nav.home": "Home",
@@ -80,6 +98,7 @@ export const ui = {
     "nav.registry": "Registry",
     "nav.gallery": "Gallery",
     "nav.faqs": "FAQs",
+    "nav.rsvp": "RSVP",
     "home.hero.names": "JOSE ALE",
     "home.hero.and": "&",
     "home.hero.sansta": "SANSTA",
@@ -140,5 +159,22 @@ export const ui = {
     "faq.q3": "Can I take pictures during the ceremony?",
     "faq.a3":
       "Yes, absolutely. However, please remain seated so as not to obstruct the view or the work of our photographers.",
+
+    // RSVP Page
+    "rsvp.title": "R S V P",
+    "rsvp.intro":
+      "We would love to have you with us. Please confirm your attendance before July 1, 2026.",
+    "rsvp.name": "Full name",
+    "rsvp.email": "Email address",
+    "rsvp.attending": "Will you be joining us?",
+    "rsvp.attending.yes": "Yes, I'll be there",
+    "rsvp.attending.no": "Sorry, I can't make it",
+    "rsvp.guests": "Number of guests (including yourself)",
+    "rsvp.message": "Message for the couple (optional)",
+    "rsvp.submit": "Send RSVP",
+    "rsvp.success.title": "Thank you!",
+    "rsvp.success.message":
+      "We have received your RSVP. We are so excited to celebrate with you!",
+    "rsvp.required": "This field is required",
   },
 } as const;
