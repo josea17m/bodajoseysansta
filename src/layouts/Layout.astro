@@ -1,7 +1,11 @@
 ---
-import SideMenu from "../components/SideMenu.astro";
 import "../styles/global.css";
-import { getLangFromUrl } from "../i18n/utils";
+import {
+  getLangFromUrl,
+  getPathWithoutLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
 
 export interface Props {
   title: string;
@@ -9,6 +13,20 @@ export interface Props {
 
 const { title } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
+const currentPath = getPathWithoutLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const t = useTranslations(lang);
+
+const navItems = [
+  { path: "/", label: t("nav.home") },
+  { path: "/schedule", label: t("nav.schedule") },
+  { path: "/registry", label: t("nav.registry") },
+  { path: "/gallery", label: t("nav.gallery") },
+  { path: "/faqs", label: t("nav.faqs") },
+  { path: "/rsvp", label: t("nav.rsvp"), cta: true },
+];
+
+const isActive = (path: string) => currentPath === path;
 ---
 
 <!doctype html>
@@ -20,75 +38,93 @@ const lang = getLangFromUrl(Astro.url);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <SideMenu title={title} />
-    <slot />
+    <div class="shell">
+      <div class="garland" aria-hidden="true">
+        <svg class="swag" viewBox="0 0 1200 70" preserveAspectRatio="none">
+          <path
+            d="M0 10 C 160 76, 340 76, 500 10 S 840 -56, 1200 10"
+            fill="none"
+            stroke="#BFA787"
+            stroke-width="3"
+            stroke-linecap="round"></path>
+        </svg>
+        <div class="bulbs">
+          {Array.from({ length: 12 }).map(() => (
+            <span class="bulb"><span class="wire"></span><span class="cap"></span><span class="glow"></span></span>
+          ))}
+        </div>
+      </div>
+
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <a class="brand" href={translatePath("/")}>Sansta & Jose</a>
+          <a class="topbar-locket" href={translatePath("/")} aria-label="Sansta & Jose Ale">
+            <img src="/images/locket.png" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
+          </a>
+          <nav class="nav" aria-label="Main navigation">
+            {navItems.map((item) => (
+              <a
+                href={translatePath(item.path)}
+                class:list={[isActive(item.path) && "active", item.cta && "nav-cta"]}
+              >
+                {item.label}
+              </a>
+            ))}
+            <span class="nav lang-nav" aria-label="Language">
+              <a href={translatePath(currentPath, "es")} class:list={[lang === "es" && "active"]}>ES</a>
+              <a href={translatePath(currentPath, "en")} class:list={[lang === "en" && "active"]}>EN</a>
+            </span>
+          </nav>
+          <button class="menu-btn" id="menuBtn" aria-label={t("nav.openMenu")} aria-controls="mobileNav" aria-expanded="false">
+            <span></span>
+          </button>
+        </div>
+        <nav class="container mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+          {navItems.map((item) => (
+            <a
+              href={translatePath(item.path)}
+              class:list={[isActive(item.path) && "active", item.cta && "nav-cta"]}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a href={translatePath(currentPath, "es")} class:list={[lang === "es" && "active"]}>ES</a>
+          <a href={translatePath(currentPath, "en")} class:list={[lang === "en" && "active"]}>EN</a>
+        </nav>
+      </header>
+
+      <main class="page">
+        <slot />
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="fbrand">Sansta & Jose</div>
+          <nav class="flinks" aria-label="Footer navigation">
+            {navItems.map((item) => <a href={translatePath(item.path)}>{item.label}</a>)}
+          </nav>
+          <div class="fhash">{t("home.hero.hashtag")}</div>
+        </div>
+      </footer>
+    </div>
     <script define:vars={{ currentLang: lang }}>
       try {
         localStorage.setItem("preferredLang", currentLang);
       } catch {
         // Ignore storage errors so the page still renders normally.
       }
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      menuBtn?.addEventListener("click", () => {
+        const isOpen = mobileNav?.classList.toggle("open") ?? false;
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+      });
     </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --text-primary: #594e46; /* Charcoal/Dark Brown */
-    --text-accent: #c4917c; /* Rose gold / copper */
-    --text-meta: #7f7f7f;
-    --bg-color: #ffffff;
-    --font-heading: "Cormorant Garamond", serif;
-    --font-body: "Inter", sans-serif;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: var(--font-body);
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* Header & Menu */
-  .header {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-  }
-
-  .menu-btn {
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(4px);
-    transition: transform 0.2s ease;
-  }
-
-  .menu-btn:hover {
-    transform: scale(1.05);
-  }
-
-  .menu-icon {
-    stroke: var(--text-primary);
-  }
-</style>
