@@ -8,6 +8,15 @@ export function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Hero carousel slides. Replace the placeholders below with real photos:
+//   { image: "/images/your-photo.jpg", alt: "Description" }
+const heroSlides = [
+  { image: "/images/venue.png", alt: t("home.venue.reception.name") },
+  { image: "", alt: "" },
+  { image: "", alt: "" },
+  { image: "", alt: "" },
+];
 ---
 
 <Layout title={`Sansta & Jose Ale · ${t("home.hero.date")}`}>
@@ -32,8 +41,29 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <div class="hero-photo media-frame">
-      <img src="/images/venue.png" alt={t("home.venue.reception.name")} />
+    <div class="hero-carousel" data-carousel>
+      <div class="carousel-viewport">
+        <div class="carousel-track" data-track>
+          {heroSlides.map((slide) => (
+            <div class="carousel-slide">
+              {slide.image ? (
+                <img src={slide.image} alt={slide.alt} />
+              ) : (
+                <div class="photo-slot">
+                  <span class="tag">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <button class="carousel-arrow prev" type="button" data-prev aria-label={lang === "es" ? "Anterior" : "Previous"}>‹</button>
+      <button class="carousel-arrow next" type="button" data-next aria-label={lang === "es" ? "Siguiente" : "Next"}>›</button>
+      <div class="carousel-dots" data-dots>
+        {heroSlides.map((_, i) => (
+          <button class="carousel-dot" type="button" data-dot={i} aria-label={`${lang === "es" ? "Ir a la foto" : "Go to photo"} ${i + 1}`}></button>
+        ))}
+      </div>
     </div>
 
     <div class="countdown" id="countdown" aria-live="polite"></div>
@@ -136,5 +166,37 @@ const t = useTranslations(lang);
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+  </script>
+
+  <script>
+    const carousel = document.querySelector("[data-carousel]");
+    if (carousel) {
+      const track = carousel.querySelector("[data-track]");
+      const slides = Array.from(track.children);
+      const dots = Array.from(carousel.querySelectorAll("[data-dot]"));
+      let index = 0;
+      let timer;
+
+      const go = (i) => {
+        index = (i + slides.length) % slides.length;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, di) => dot.classList.toggle("active", di === index));
+      };
+
+      const start = () => {
+        if (slides.length > 1) timer = setInterval(() => go(index + 1), 5000);
+      };
+      const stop = () => clearInterval(timer);
+
+      carousel.querySelector("[data-prev]")?.addEventListener("click", () => { go(index - 1); stop(); start(); });
+      carousel.querySelector("[data-next]")?.addEventListener("click", () => { go(index + 1); stop(); start(); });
+      dots.forEach((dot, di) => dot.addEventListener("click", () => { go(di); stop(); start(); }));
+
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+
+      go(0);
+      start();
+    }
   </script>
 </Layout>
