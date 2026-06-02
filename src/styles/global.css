@@ -664,7 +664,8 @@ textarea.field {
 
 .carousel-track {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
 }
 
 .carousel-slide {
