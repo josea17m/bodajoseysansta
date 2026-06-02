@@ -673,7 +673,6 @@ textarea.field {
 .locket-feature img {
   display: block;
   height: auto;
-  width: clamp(220px, 42vw, 420px);
 }
 
 .cd-cell {
@@ -782,6 +781,7 @@ textarea.field {
 
 .block.tint {
   background: linear-gradient(180deg, transparent, rgba(248, 229, 233, 0.45) 50%, transparent);
+  padding: 0;
 }
 
 .timeline {
