@@ -52,9 +52,6 @@ export const ui = {
       "Su presencia es nuestro mayor regalo. Sin embargo, si desean obsequiarnos algo, hemos creado esta mesa de regalos para nuestra luna de miel y futuro hogar.",
     "registry.intro2":
       "Pueden traer una tarjeta de regalo (gift card) o un sobre con efectivo el día de la boda.",
-    "registry.bank": "Zelle",
-    "registry.bank.name": "Titular: Jose Alejandro",
-    "registry.bank.zelle": "Zelle: 321 404 9903",
     "registry.amazon": "Mesa de Regalos Amazon",
     "registry.amazon.desc":
       "Encuentra nuestra lista de artículos seleccionados en Amazon.",
@@ -140,9 +137,6 @@ export const ui = {
       "Your presence is our greatest gift. However, if you wish to honor us with a gift, we have created a registry for our honeymoon and future home.",
     "registry.intro2":
       "You can bring a gift card or an envelope with cash on the wedding day.",
-    "registry.bank": "Zelle",
-    "registry.bank.name": "Account Holder: Jose Alejandro",
-    "registry.bank.zelle": "Zelle: 321 404 9903",
     "registry.amazon": "Amazon Registry",
     "registry.amazon.desc": "Find our curated list of items on Amazon.",
     "registry.amazon.cta": "View registry",

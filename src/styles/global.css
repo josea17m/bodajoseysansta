@@ -845,7 +845,8 @@ textarea.field {
 .reg-grid {
   display: grid;
   gap: 22px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  justify-content: center;
 }
 
 .reg-card {
