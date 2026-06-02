@@ -37,15 +37,14 @@ const t = useTranslations(lang);
         <article class="reg-card card">
           <div class="reg-emoji" style="background: var(--sage);">$</div>
           <h2>{t("registry.bank")}</h2>
-          <p>{t("registry.bank.name")}<br />{t("registry.bank.clabe")}<br />{t("registry.bank.bankName")}</p>
-          <span class="btn btn-ghost btn-block">{lang === "es" ? "Datos bancarios" : "Bank details"}</span>
+          <p>{t("registry.bank.name")}<br />{t("registry.bank.zelle")}</p>
+          <span class="btn btn-ghost btn-block">{lang === "es" ? "Datos de Zelle" : "Zelle details"}</span>
         </article>
 
         <article class="reg-card card">
           <div class="reg-emoji" style="background: var(--terracotta);">♥</div>
           <h2>{lang === "es" ? "Regalo en efectivo" : "Cash gift"}</h2>
           <p>{t("registry.intro2")}</p>
-          <span class="btn btn-ghost btn-block">{lang === "es" ? "Día del evento" : "Wedding day"}</span>
         </article>
       </div>
 

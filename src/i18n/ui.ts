@@ -51,11 +51,10 @@ export const ui = {
     "registry.intro1":
       "Su presencia es nuestro mayor regalo. Sin embargo, si desean obsequiarnos algo, hemos creado esta mesa de regalos para nuestra luna de miel y futuro hogar.",
     "registry.intro2":
-      "También estaremos aceptando regalos en efectivo el día del evento en un sobre en nuestro buzón.",
-    "registry.bank": "Transferencia / Depósito",
+      "Pueden traer una tarjeta de regalo (gift card) o un sobre con efectivo el día de la boda.",
+    "registry.bank": "Zelle",
     "registry.bank.name": "Titular: Jose Alejandro",
-    "registry.bank.clabe": "CLABE: 0123 4567 8901 2345 67",
-    "registry.bank.bankName": "Banco: BBVA",
+    "registry.bank.zelle": "Zelle: 321 404 9903",
     "registry.amazon": "Mesa de Regalos Amazon",
     "registry.amazon.desc":
       "Encuentra nuestra lista de artículos seleccionados en Amazon.",
@@ -140,11 +139,10 @@ export const ui = {
     "registry.intro1":
       "Your presence is our greatest gift. However, if you wish to honor us with a gift, we have created a registry for our honeymoon and future home.",
     "registry.intro2":
-      "We will also be accepting cash gifts on the day of the event in an envelope in our mailbox.",
-    "registry.bank": "Bank Transfer / Deposit",
+      "You can bring a gift card or an envelope with cash on the wedding day.",
+    "registry.bank": "Zelle",
     "registry.bank.name": "Account Holder: Jose Alejandro",
-    "registry.bank.clabe": "CLABE: 0123 4567 8901 2345 67",
-    "registry.bank.bankName": "Bank: BBVA",
+    "registry.bank.zelle": "Zelle: 321 404 9903",
     "registry.amazon": "Amazon Registry",
     "registry.amazon.desc": "Find our curated list of items on Amazon.",
     "registry.amazon.cta": "View registry",

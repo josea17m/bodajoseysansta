@@ -882,6 +882,10 @@ textarea.field {
   margin: 8px 0 18px;
 }
 
+.reg-card .btn {
+  margin-top: auto;
+}
+
 .honeyfund {
   background: linear-gradient(135deg, rgba(248, 229, 233, 0.7), rgba(246, 226, 166, 0.4));
   border: 1px solid var(--line-soft);
