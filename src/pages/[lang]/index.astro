@@ -30,9 +30,6 @@ const t = useTranslations(lang);
         </div>
         <p class="loc">{t("home.hero.location")}</p>
       </div>
-      <div class="hero-side hero-locket">
-        <img src="/images/locket.png" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
-      </div>
     </div>
 
     <div class="hero-photo media-frame">
@@ -40,6 +37,10 @@ const t = useTranslations(lang);
     </div>
 
     <div class="countdown" id="countdown" aria-live="polite"></div>
+
+    <div class="locket-feature">
+      <img src="/images/locket.png" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
+    </div>
   </section>
 
   <section class="block tint">

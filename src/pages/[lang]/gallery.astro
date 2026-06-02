@@ -30,19 +30,6 @@ const galleryItems = [
         <p>{t("gallery.intro")}</p>
       </div>
 
-      <div class="gallery-tools">
-        <div class="gal-filter">
-          <select class="select" aria-label={lang === "es" ? "Filtrar galería" : "Filter gallery"}>
-            <option>{lang === "es" ? "Todos los momentos" : "All moments"}</option>
-            <option>{lang === "es" ? "Ceremonia" : "Ceremony"}</option>
-            <option>{lang === "es" ? "Recepción" : "Reception"}</option>
-          </select>
-        </div>
-        <a class="btn btn-ghost" href="mailto:josealeysansta@email.com">
-          {lang === "es" ? "Compartir fotos" : "Share photos"}
-        </a>
-      </div>
-
       <div class="gal-masonry">
         {galleryItems.map((item) => (
           <div class="gal-item">

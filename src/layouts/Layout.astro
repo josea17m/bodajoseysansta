@@ -63,9 +63,6 @@ const isActive = (path: string) => currentPath === path;
       <header class="topbar">
         <div class="container topbar-inner">
           <a class="brand" href={translatePath("/")}>Sansta & Jose</a>
-          <a class="topbar-locket" href={translatePath("/")} aria-label="Sansta & Jose Ale">
-            <img src="/images/locket.png" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
-          </a>
           <nav class="nav" aria-label="Main navigation">
             {navItems.map((item) => (
               <a

@@ -267,16 +267,6 @@ h3 {
   white-space: nowrap;
 }
 
-.topbar-locket {
-  display: none;
-}
-
-.topbar-locket img {
-  display: block;
-  height: 40px;
-  width: auto;
-}
-
 .nav {
   align-items: center;
   display: flex;
@@ -674,6 +664,18 @@ textarea.field {
   margin: 40px 0 8px;
 }
 
+.locket-feature {
+  display: flex;
+  justify-content: center;
+  margin: 24px auto 0;
+}
+
+.locket-feature img {
+  display: block;
+  height: auto;
+  width: clamp(220px, 42vw, 420px);
+}
+
 .cd-cell {
   background: var(--paper);
   border: 1px solid var(--line-soft);
@@ -960,51 +962,6 @@ textarea.field {
   opacity: 1;
 }
 
-.gallery-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  margin: 0 auto 34px;
-  max-width: 680px;
-}
-
-.gal-filter {
-  flex: 1;
-  min-width: 240px;
-  position: relative;
-}
-
-.select {
-  appearance: none;
-  background: var(--paper);
-  border: 1.5px solid var(--line);
-  border-radius: var(--r-pill);
-  color: var(--ink);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 15px 48px 15px 22px;
-  width: 100%;
-}
-
-.select:focus {
-  border-color: var(--rose-soft);
-  box-shadow: 0 0 0 4px rgba(217, 156, 171, 0.2);
-  outline: none;
-}
-
-.gal-filter::after {
-  color: var(--ink-faint);
-  content: "v";
-  pointer-events: none;
-  position: absolute;
-  right: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -1169,14 +1126,6 @@ textarea.field {
 
   .menu-btn {
     display: flex;
-  }
-
-  .topbar-locket {
-    display: block;
-  }
-
-  .hero-locket {
-    display: none;
   }
 
   .mobile-nav.open {
