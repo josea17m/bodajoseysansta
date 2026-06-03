@@ -649,101 +649,72 @@ textarea.field {
   width: 100%;
 }
 
-.hero-carousel {
+/* Cinta de fotos: desplazamiento continuo y lento */
+.hero-ribbon {
   margin: 34px auto 0;
-  max-width: 760px;
-  position: relative;
+  max-width: 920px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 6%,
+    #000 94%,
+    transparent 100%
+  );
 }
 
-.carousel-viewport {
-  border: 1px solid var(--line-soft);
+.ribbon-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: ribbon-scroll 55s linear infinite;
+  will-change: transform;
+}
+
+.ribbon-slide {
+  aspect-ratio: 16 / 9;
+  flex: 0 0 auto;
+  width: 300px;
   border-radius: var(--r-md);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
 
-.carousel-track {
-  display: flex;
-  transition: transform 2.2s cubic-bezier(0.37, 0, 0.63, 1);
-  will-change: transform;
-}
-
-.carousel-slide {
-  aspect-ratio: 16 / 9;
-  flex: 0 0 100%;
-  width: 100%;
-}
-
-.carousel-slide img {
+.ribbon-slide img {
   display: block;
   height: 100%;
   object-fit: cover;
   width: 100%;
 }
 
-.carousel-slide .photo-slot {
+.ribbon-slide .photo-slot {
   border: none;
   border-radius: 0;
   height: 100%;
   width: 100%;
 }
 
-.carousel-arrow {
-  align-items: center;
-  background: rgba(255, 253, 248, 0.85);
-  border: 1px solid var(--line-soft);
-  border-radius: 50%;
-  color: var(--rose-deep);
-  cursor: pointer;
-  display: flex;
-  font-size: 1.6rem;
-  height: 42px;
-  justify-content: center;
-  line-height: 1;
-  padding-bottom: 3px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: background 0.2s ease;
-  width: 42px;
-  z-index: 2;
+@keyframes ribbon-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* la mitad del track = un juego completo de slides (incluye el gap final) */
+    transform: translateX(calc(-50% - 7px));
+  }
 }
 
-.carousel-arrow:hover {
-  background: #fff;
-}
-
-.carousel-arrow.prev {
-  left: 14px;
-}
-
-.carousel-arrow.next {
-  right: 14px;
-}
-
-.carousel-dots {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 14px;
-}
-
-.carousel-dot {
-  background: var(--rose-soft);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 9px;
-  opacity: 0.5;
-  padding: 0;
-  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
-  width: 9px;
-}
-
-.carousel-dot.active {
-  background: var(--rose);
-  opacity: 1;
-  transform: scale(1.25);
+@media (prefers-reduced-motion: reduce) {
+  .ribbon-track {
+    animation: none;
+  }
 }
 
 .countdown {
