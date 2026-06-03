@@ -34,12 +34,12 @@ const t = useTranslations(lang);
 
           <div class="form-row">
             <label for="name">{t("rsvp.name")} <span class="req">*</span></label>
-            <input class="field" type="text" id="name" name="name" required />
+            <input class="field" type="text" id="name" name="name" placeholder={t("rsvp.name.placeholder")} required />
           </div>
 
           <div class="form-row">
-            <label for="email">{t("rsvp.email")} <span class="req">*</span></label>
-            <input class="field" type="email" id="email" name="email" required />
+            <label for="phone">{t("rsvp.phone")} <span class="req">*</span></label>
+            <input class="field" type="tel" id="phone" name="phone" placeholder={t("rsvp.phone.placeholder")} required />
           </div>
 
           <div class="form-row">
