@@ -12,7 +12,7 @@ const t = useTranslations(lang);
 // Hero carousel slides. Replace the placeholders below with real photos:
 //   { image: "/images/your-photo.jpg", alt: "Description" }
 const heroSlides = [
-  { image: "/images/venue.png", alt: t("home.venue.reception.name") },
+  { image: "/images/venue.webp", alt: t("home.venue.reception.name") },
   { image: "", alt: "" },
   { image: "", alt: "" },
   { image: "", alt: "" },
@@ -23,7 +23,7 @@ const heroSlides = [
   <section class="hero container">
     <div class="hero-top">
       <div class="hero-side hero-drawing">
-        <img src="/images/us-drawing.png" alt={lang === "es" ? "Sansta y Jose Ale" : "Sansta and Jose Ale"} />
+        <img src="/images/us-drawing.webp" alt={lang === "es" ? "Sansta y Jose Ale" : "Sansta and Jose Ale"} />
       </div>
       <div class="hero-center">
         <span class="eyebrow">{lang === "es" ? "La boda de" : "The wedding of"}</span>
@@ -69,7 +69,7 @@ const heroSlides = [
     <div class="countdown" id="countdown" aria-live="polite"></div>
 
     <div class="locket-feature">
-      <img src="/images/locket.png" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
+      <img src="/images/locket.webp" loading="lazy" decoding="async" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
     </div>
   </section>
 
@@ -117,7 +117,7 @@ const heroSlides = [
   <section class="block">
     <div class="container story">
       <div class="media-frame">
-        <img src="/images/ring.png" alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} />
+        <img src="/images/ring.webp" loading="lazy" decoding="async" alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} />
       </div>
       <div>
         <span class="eyebrow muted">{t("home.story.title")}</span>
