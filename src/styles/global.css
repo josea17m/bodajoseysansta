@@ -674,7 +674,7 @@ textarea.field {
   display: flex;
   gap: 14px;
   width: max-content;
-  animation: ribbon-scroll 55s linear infinite;
+  animation: ribbon-scroll 57s linear infinite;
   will-change: transform;
 }
 
