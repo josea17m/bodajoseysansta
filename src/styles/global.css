@@ -651,8 +651,8 @@ textarea.field {
 
 /* Cinta de fotos: desplazamiento continuo y lento */
 .hero-ribbon {
-  margin: 34px auto 0;
-  max-width: 920px;
+  margin: 40px auto 0;
+  max-width: 1120px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     90deg,
@@ -681,7 +681,7 @@ textarea.field {
 .ribbon-slide {
   aspect-ratio: 16 / 9;
   flex: 0 0 auto;
-  width: 300px;
+  width: 460px;
   border-radius: var(--r-md);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
@@ -708,6 +708,12 @@ textarea.field {
   to {
     /* la mitad del track = un juego completo de slides (incluye el gap final) */
     transform: translateX(calc(-50% - 7px));
+  }
+}
+
+@media (max-width: 640px) {
+  .ribbon-slide {
+    width: 80vw;
   }
 }
 
