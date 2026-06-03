@@ -672,7 +672,7 @@ textarea.field {
 
 .ribbon-track {
   display: flex;
-  gap: 14px;
+  gap: 0;
   width: max-content;
   animation: ribbon-scroll 57s linear infinite;
   will-change: transform;
@@ -682,8 +682,6 @@ textarea.field {
   aspect-ratio: 16 / 9;
   flex: 0 0 auto;
   width: 460px;
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow-lg);
   overflow: hidden;
 }
 
@@ -706,8 +704,8 @@ textarea.field {
     transform: translateX(0);
   }
   to {
-    /* la mitad del track = un juego completo de slides (incluye el gap final) */
-    transform: translateX(calc(-50% - 7px));
+    /* la mitad del track = un juego completo de slides (sin gap) */
+    transform: translateX(-50%);
   }
 }
 
