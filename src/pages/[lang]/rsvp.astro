@@ -46,11 +46,11 @@ const t = useTranslations(lang);
             <span class="form-label">{t("rsvp.attending")} <span class="req">*</span></span>
             <div class="choice">
               <label>
-                <input type="radio" name="attending" value={t("rsvp.attending.yes")} required />
+                <input type="radio" name="attending" value="Sí" required />
                 {t("rsvp.attending.yes")}
               </label>
               <label>
-                <input type="radio" name="attending" value={t("rsvp.attending.no")} />
+                <input type="radio" name="attending" value="No" />
                 {t("rsvp.attending.no")}
               </label>
             </div>
