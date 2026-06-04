@@ -49,7 +49,7 @@ export const ui = {
     // Registry Page
     "registry.title": "M E S A  D E  R E G A L O S",
     "registry.intro1":
-      "Su presencia es nuestro mayor regalo. Sin embargo, si desean obsequiarnos algo, hemos creado esta mesa de regalos para nuestra luna de miel y futuro hogar.",
+      "¡Aquí hay una lista de algunas cosas que nos encantaría tener como recién casados! Por favor asegúrese de marcar su artículo después de comprarlo para que otros sepan qué queda. :)",
     "registry.amazon": "Mesa de Regalos Amazon",
     "registry.amazon.desc":
       "Encuentra nuestra lista de artículos seleccionados en Amazon.",
@@ -137,7 +137,7 @@ export const ui = {
     // Registry Page
     "registry.title": "R E G I S T R Y",
     "registry.intro1":
-      "Your presence is our greatest gift. However, if you wish to honor us with a gift, we have created a registry for our honeymoon and future home.",
+      "Here is a list of some things we would love to have as newly weds! Please be sure your item is marked off after purchasing so others know what's left. :)",
     "registry.amazon": "Amazon Registry",
     "registry.amazon.desc": "Find our curated list of items on Amazon.",
     "registry.amazon.cta": "View registry",
