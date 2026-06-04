@@ -75,7 +75,7 @@ export const ui = {
     // RSVP Page
     "rsvp.title": "C O N F I R M A R   A S I S T E N C I A",
     "rsvp.intro":
-      "Nos encantaría contar con su presencia. Por favor confirmen su asistencia antes del 1 de julio de 2026.",
+      "Nos encantaría contar con su presencia. Por favor confirmen su asistencia antes del 5 de julio de 2026.",
     "rsvp.name": "Apellido (como aparece en su invitación)",
     "rsvp.name.placeholder": "Ej: Montero",
     "rsvp.email": "Correo electrónico",
@@ -162,7 +162,7 @@ export const ui = {
     // RSVP Page
     "rsvp.title": "R S V P",
     "rsvp.intro":
-      "We would love to have you with us. Please confirm your attendance before July 1, 2026.",
+      "We would love to have you with us. Please confirm your attendance before July 5, 2026.",
     "rsvp.name": "Last name (as it appears on your invitation)",
     "rsvp.name.placeholder": "E.g.: Montero",
     "rsvp.email": "Email address",
