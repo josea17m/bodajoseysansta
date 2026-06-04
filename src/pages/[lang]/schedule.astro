@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import flowerBannerStraight from "../../assets/flower-banner-straight.png";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -11,7 +13,11 @@ const t = useTranslations(lang);
 ---
 
 <Layout title={`${t("schedule.title")} · Sansta & Jose Ale`}>
-  <section class="block">
+  <div class="flower-banner-wrap">
+    <Image src={flowerBannerStraight} alt="Flower banner" class="flower-banner" />
+  </div>
+
+  <section class="block" style="margin-top: -80px;">
     <div class="container">
       <div class="section-head">
         <span class="eyebrow muted">{t("schedule.date")}</span>
