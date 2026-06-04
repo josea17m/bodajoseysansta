@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 export function getStaticPaths() {
@@ -9,26 +10,37 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Photos in src/assets/photos, optimized at build time by astro:assets.
+const photoModules = import.meta.glob("../../assets/photos/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+const photo = (file) => {
+  const entry = Object.entries(photoModules).find(([path]) => path.endsWith("/" + file));
+  if (!entry) throw new Error("Image not found: " + file);
+  return entry[1];
+};
+
 const galleryImages = [
-  "/images/js-80.jpg",
-  "/images/js-79.jpg",
-  "/images/js-77.jpg",
-  "/images/js-75.jpg",
-  "/images/js-76.jpg",
-  "/images/js-87.jpg",
-  "/images/js-44.jpg",
-  "/images/IMG_6934.jpg",
-  "/images/IMG_6925.jpg",
-  "/images/IMG_6916.jpg",
-  "/images/IMG_6929.jpg",
-  "/images/IMG_6976.jpg",
-  "/images/IMG_6978.jpg",
-  "/images/IMG_1651.jpg",
-  "/images/IMG_5068.jpg",
-  "/images/IMG_5118.jpg",
-  "/images/IMG_5416.jpg",
-  "/images/IMG_5566.jpeg",
-];
+  "js-80.jpg",
+  "js-79.jpg",
+  "js-77.jpg",
+  "js-75.jpg",
+  "js-76.jpg",
+  "js-87.jpg",
+  "js-44.jpg",
+  "IMG_6934.jpg",
+  "IMG_6925.jpg",
+  "IMG_6916.jpg",
+  "IMG_6929.jpg",
+  "IMG_6976.jpg",
+  "IMG_6978.jpg",
+  "IMG_1651.jpg",
+  "IMG_5068.jpg",
+  "IMG_5118.jpg",
+  "IMG_5416.jpg",
+  "IMG_5566.jpeg",
+].map(photo);
 ---
 
 <Layout title={`${t("gallery.title")} · Sansta & Jose Ale`}>
@@ -41,13 +53,23 @@ const galleryImages = [
       </div>
 
       <div class="gal-masonry">
-        {galleryImages.map((src, i) => (
+        {galleryImages.map((img, i) => (
           <div class="gal-item">
-            <img src={src} alt={`${lang === "es" ? "Foto" : "Photo"} ${i + 1} · Sansta & Jose Ale`} loading="lazy" decoding="async" />
+            <Image
+              src={img}
+              alt={`${lang === "es" ? "Foto" : "Photo"} ${i + 1} · Sansta & Jose Ale`}
+              widths={[360, 540, 720, 1080]}
+              sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 360px"
+              format="webp"
+              quality={72}
+              loading="lazy"
+              decoding="async"
+            />
             <span class="gal-hint">{lang === "es" ? "Ver foto" : "View photo"}</span>
           </div>
         ))}
       </div>
+
     </div>
   </section>
 </Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 export function getStaticPaths() {
@@ -9,23 +10,38 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Hero ribbon slides. w/h are the photo's real pixel dimensions so the
-// browser reserves the right width before each image loads (no reflow/jumps).
+// Photos live in src/assets/photos and are optimized at build time by
+// astro:assets (resized + WebP). Look them up by filename.
+const photoModules = import.meta.glob("../../assets/photos/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+const photo = (file) => {
+  const entry = Object.entries(photoModules).find(([path]) => path.endsWith("/" + file));
+  if (!entry) throw new Error("Image not found: " + file);
+  return entry[1];
+};
+
+// Hero ribbon photos.
 const heroSlides = [
-  { image: "/images/js-80.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
-  { image: "/images/IMG_6925.jpg", alt: "Sansta & Jose Ale", w: 741, h: 866 },
-  { image: "/images/js-79.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
-  { image: "/images/js-77.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
-  { image: "/images/js-75.jpg", alt: "Sansta & Jose Ale", w: 3500, h: 2333 },
-  { image: "/images/js-87.jpg", alt: "Sansta & Jose Ale", w: 2355, h: 3500 },
+  { img: photo("js-80.jpg"), alt: "Sansta & Jose Ale" },
+  { img: photo("IMG_6925.jpg"), alt: "Sansta & Jose Ale" },
+  { img: photo("js-79.jpg"), alt: "Sansta & Jose Ale" },
+  { img: photo("js-77.jpg"), alt: "Sansta & Jose Ale" },
+  { img: photo("js-75.jpg"), alt: "Sansta & Jose Ale" },
+  { img: photo("js-87.jpg"), alt: "Sansta & Jose Ale" },
 ];
+
+const drawing = photo("us-drawing.webp");
+const locket = photo("locket-cut.webp");
+const rings = photo("IMG_6934.jpg");
 ---
 
 <Layout title={`Sansta & Jose Ale · ${t("home.hero.date")}`}>
   <section class="hero container">
     <div class="hero-top">
       <div class="hero-side hero-drawing">
-        <img src="/images/us-drawing.webp" alt={lang === "es" ? "Sansta y Jose Ale" : "Sansta and Jose Ale"} />
+        <Image src={drawing} alt={lang === "es" ? "Sansta y Jose Ale" : "Sansta and Jose Ale"} width={600} format="webp" quality={80} />
       </div>
       <div class="hero-center">
         <span class="eyebrow">{lang === "es" ? "La boda de" : "The wedding of"}</span>
@@ -47,13 +63,7 @@ const heroSlides = [
       <div class="ribbon-track" aria-hidden="false">
         {[...heroSlides, ...heroSlides].map((slide) => (
           <div class="ribbon-slide">
-            {slide.image ? (
-              <img src={slide.image} alt={slide.alt} width={slide.w} height={slide.h} loading="eager" decoding="async" />
-            ) : (
-              <div class="photo-slot">
-                <span class="tag">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
-              </div>
-            )}
+            <Image src={slide.img} alt={slide.alt} height={1000} format="webp" quality={75} loading="eager" decoding="async" />
           </div>
         ))}
       </div>
@@ -62,7 +72,7 @@ const heroSlides = [
     <div class="countdown" id="countdown" aria-live="polite"></div>
 
     <div class="locket-feature">
-      <img src="/images/locket-cut.webp" loading="lazy" decoding="async" alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} />
+      <Image src={locket} alt={lang === "es" ? "Relicario Jose Alejandro y Sansta" : "Jose Alejandro and Sansta locket"} width={900} format="webp" quality={80} loading="lazy" decoding="async" />
     </div>
   </section>
 
@@ -110,7 +120,7 @@ const heroSlides = [
   <section class="block">
     <div class="container story">
       <div class="media-frame">
-        <img src="/images/IMG_6934.jpg" loading="lazy" decoding="async" alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} />
+        <Image src={rings} alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} width={1100} format="webp" quality={80} loading="lazy" decoding="async" />
       </div>
       <div>
         <span class="eyebrow muted">{t("home.story.title")}</span>
