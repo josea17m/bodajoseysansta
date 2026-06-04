@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const attireImages: any[] = [];
+---
+
+<Layout title={`${lang === "es" ? "Vestimenta" : "Attire"} · Sansta & Jose Ale`}>
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow muted">{lang === "es" ? "Código de Vestimenta" : "Dress Code"}</span>
+        <h1 class="script-title">{lang === "es" ? "Vestimenta" : "Attire"}</h1>
+        <p>
+          {lang === "es"
+            ? "Aquí encontrarás nuestra paleta de colores e inspiración para el día de nuestra boda."
+            : "Here you'll find our color palette and outfit inspiration for our wedding day."}
+        </p>
+      </div>
+
+      <!-- Color Palette -->
+      <div class="attire-section">
+        <h2 class="attire-heading">{lang === "es" ? "Paleta de Colores" : "Color Palette"}</h2>
+        <div class="color-swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #c9a96e;"></div>
+            <span class="swatch-name">{lang === "es" ? "Dorado Suave" : "Soft Gold"}</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e8d5c4;"></div>
+            <span class="swatch-name">{lang === "es" ? "Crema" : "Cream"}</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #b07d8a;"></div>
+            <span class="swatch-name">{lang === "es" ? "Rosa Polvoso" : "Dusty Rose"}</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #6b7c6e;"></div>
+            <span class="swatch-name">{lang === "es" ? "Verde Salvia" : "Sage Green"}</span>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #8c7b6b;"></div>
+            <span class="swatch-name">{lang === "es" ? "Marrón Cálido" : "Warm Taupe"}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inspiration Images -->
+      {attireImages.length > 0 && (
+        <div class="attire-section">
+          <h2 class="attire-heading">{lang === "es" ? "Inspiración" : "Inspiration"}</h2>
+          <div class="attire-grid">
+            {attireImages.map((img, i) => (
+              <div class="attire-item">
+                <Image src={img} alt={`Attire inspiration ${i + 1}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .attire-section {
+    margin-top: 48px;
+  }
+
+  .attire-heading {
+    color: var(--rose-deep);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .swatch {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .swatch-color {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    height: 80px;
+    width: 80px;
+  }
+
+  .swatch-name {
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  .attire-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .attire-item img {
+    border-radius: 12px;
+    height: 320px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media (max-width: 520px) {
+    .swatch-color {
+      height: 64px;
+      width: 64px;
+    }
+
+    .attire-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
