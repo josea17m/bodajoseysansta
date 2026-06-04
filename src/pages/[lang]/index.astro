@@ -47,7 +47,7 @@ const heroSlides = [
         {[...heroSlides, ...heroSlides].map((slide) => (
           <div class="ribbon-slide">
             {slide.image ? (
-              <img src={slide.image} alt={slide.alt} loading="lazy" decoding="async" />
+              <img src={slide.image} alt={slide.alt} loading="eager" decoding="async" />
             ) : (
               <div class="photo-slot">
                 <span class="tag">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
