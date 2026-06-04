@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import flowerBannerStraight from "../../assets/flower-banner-straight.png";
 
 import gents1 from "../../assets/attire-gents-1.jpg";
 import gents2 from "../../assets/attire-gents-2.jpg";
@@ -35,6 +36,10 @@ const gentsImages = [gents1, gents2, gents3, gents4, gents5, gents6, gents7, gen
 ---
 
 <Layout title={`${lang === "es" ? "Vestimenta" : "Attire"} · Sansta & Jose Ale`}>
+  <div class="flower-banner-wrap">
+    <Image src={flowerBannerStraight} alt="Flower banner" class="flower-banner" />
+  </div>
+
   <section class="block">
     <div class="container">
       <div class="section-head">
