@@ -9,13 +9,14 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Hero carousel slides. Replace the placeholders below with real photos:
-//   { image: "/images/your-photo.jpg", alt: "Description" }
+// Hero carousel slides. Add/remove entries here to change the carousel.
 const heroSlides = [
-  { image: "/images/venue.webp", alt: t("home.venue.reception.name") },
-  { image: "", alt: "" },
-  { image: "", alt: "" },
-  { image: "", alt: "" },
+  { image: "/images/js-80.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/IMG_6925.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/js-79.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/js-77.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/js-75.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/js-87.jpg", alt: "Sansta & Jose Ale" },
 ];
 ---
 
@@ -108,7 +109,7 @@ const heroSlides = [
   <section class="block">
     <div class="container story">
       <div class="media-frame">
-        <img src="/images/ring.webp" loading="lazy" decoding="async" alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} />
+        <img src="/images/IMG_6934.jpg" loading="lazy" decoding="async" alt={lang === "es" ? "Anillos de boda" : "Wedding rings"} />
       </div>
       <div>
         <span class="eyebrow muted">{t("home.story.title")}</span>

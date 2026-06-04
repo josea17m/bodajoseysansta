@@ -1014,6 +1014,13 @@ textarea.field {
   border-radius: var(--r-md);
 }
 
+.gal-item img {
+  border-radius: var(--r-md);
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .gal-hint {
   align-items: center;
   background: rgba(75, 64, 56, 0.32);

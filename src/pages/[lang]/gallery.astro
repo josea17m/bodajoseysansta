@@ -9,15 +9,25 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const galleryItems = [
-  { aspect: "4 / 5", tag: "S & J", image: "/images/ring.webp" },
-  { aspect: "1 / 1", tag: "Jul 24", image: "/images/venue.webp" },
-  { aspect: "4 / 6", tag: lang === "es" ? "Momentos" : "Moments" },
-  { aspect: "4 / 4.5", tag: lang === "es" ? "Familia" : "Family" },
-  { aspect: "4 / 5.5", tag: lang === "es" ? "Amigos" : "Friends" },
-  { aspect: "1 / 1", tag: lang === "es" ? "Celebrar" : "Celebrate" },
-  { aspect: "4 / 6", tag: lang === "es" ? "Recuerdos" : "Memories" },
-  { aspect: "4 / 5", tag: "Houston" },
+const galleryImages = [
+  "/images/js-80.jpg",
+  "/images/js-79.jpg",
+  "/images/js-77.jpg",
+  "/images/js-75.jpg",
+  "/images/js-76.jpg",
+  "/images/js-87.jpg",
+  "/images/js-44.jpg",
+  "/images/IMG_6934.jpg",
+  "/images/IMG_6925.jpg",
+  "/images/IMG_6916.jpg",
+  "/images/IMG_6929.jpg",
+  "/images/IMG_6976.jpg",
+  "/images/IMG_6978.jpg",
+  "/images/IMG_1651.jpg",
+  "/images/IMG_5068.jpg",
+  "/images/IMG_5118.jpg",
+  "/images/IMG_5416.jpg",
+  "/images/IMG_5566.jpeg",
 ];
 ---
 
@@ -31,17 +41,9 @@ const galleryItems = [
       </div>
 
       <div class="gal-masonry">
-        {galleryItems.map((item) => (
+        {galleryImages.map((src, i) => (
           <div class="gal-item">
-            {item.image ? (
-              <div class="media-frame" style={`aspect-ratio: ${item.aspect};`}>
-                <img src={item.image} alt={item.tag} />
-              </div>
-            ) : (
-              <div class="photo-slot" style={`aspect-ratio: ${item.aspect};`}>
-                <span class="tag">{item.tag}</span>
-              </div>
-            )}
+            <img src={src} alt={`${lang === "es" ? "Foto" : "Photo"} ${i + 1} · Sansta & Jose Ale`} loading="lazy" decoding="async" />
             <span class="gal-hint">{lang === "es" ? "Ver foto" : "View photo"}</span>
           </div>
         ))}
