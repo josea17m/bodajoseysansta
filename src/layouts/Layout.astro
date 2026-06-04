@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import flowerBannerBottom from "../assets/flower-banner-bottom.png";
 import {
   getLangFromUrl,
   getPathWithoutLangFromUrl,
@@ -98,6 +100,10 @@ const isActive = (path: string) => currentPath === path;
       <main class="page">
         <slot />
       </main>
+
+      <div class="flower-banner-wrap">
+        <Image src={flowerBannerBottom} alt="Flower banner" class="flower-banner" />
+      </div>
 
       <footer class="footer">
         <div class="container">
