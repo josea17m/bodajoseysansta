@@ -57,7 +57,7 @@ export const ui = {
 
     // Gallery Page
     "gallery.title": "G A L L E R Í A",
-    "gallery.intro": "Algunos de nuestros momentos favoritos juntos.",
+    "gallery.intro": "Algunas fotos de nosotros :)",
 
     // FAQs Page
     "faqs.title": "P R E G U N T A S  F R E C U E N T E S",
@@ -144,7 +144,7 @@ export const ui = {
 
     // Gallery Page
     "gallery.title": "G A L L E R Y",
-    "gallery.intro": "Some of our favorite moments together.",
+    "gallery.intro": "Some pictures of us :)",
 
     // FAQs Page
     "faqs.title": "F A Q s",
