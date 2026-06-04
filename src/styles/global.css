@@ -483,6 +483,18 @@ h3 {
   text-align: center;
 }
 
+.flower-banner-wrap {
+  text-align: center;
+  overflow: hidden;
+}
+
+.flower-banner {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
 @media (max-width: 520px) {
   .btn-xl {
     font-size: 1.1rem;
