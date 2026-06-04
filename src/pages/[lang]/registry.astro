@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import flowerBannerStraight from "../../assets/flower-banner-straight.png";
+import giftIcon from "../../assets/gift-icon.png";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -21,7 +22,10 @@ const t = useTranslations(lang);
     <div class="container">
       <div class="section-head">
         <span class="eyebrow muted">{lang === "es" ? "Con cariño" : "With love"}</span>
-        <h1 class="script-title">{lang === "es" ? "Mesa de regalos" : "Registry"}</h1>
+        <h1 class="script-title registry-title">
+          <Image src={giftIcon} alt="Gift icon" class="gift-icon" />
+          {lang === "es" ? "Mesa de regalos" : "Registry"}
+        </h1>
         <p>{t("registry.intro1")}</p>
       </div>
 
@@ -49,3 +53,16 @@ const t = useTranslations(lang);
     </div>
   </section>
 </Layout>
+
+<style>
+  .registry-title {
+    align-items: center;
+    display: inline-flex;
+    gap: 12px;
+  }
+
+  .gift-icon {
+    height: 52px;
+    width: auto;
+  }
+</style>
