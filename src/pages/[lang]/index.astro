@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import sketchCeremony from "../../assets/sketch-ceremony.png";
 import sketchReception from "../../assets/sketch-reception.png";
 import flowerBanner from "../../assets/flower-banner.png";
+import flowerBannerTop from "../../assets/flower-banner-top.png";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
 
 export function getStaticPaths() {
@@ -134,7 +135,7 @@ const rings = photo("IMG_6934.jpg");
   </section>
 
   <div class="flower-banner-wrap">
-    <Image src={flowerBanner} alt="Flower banner" class="flower-banner" />
+    <Image src={flowerBannerTop} alt="Flower banner" class="flower-banner" />
   </div>
 
   <section class="block">
