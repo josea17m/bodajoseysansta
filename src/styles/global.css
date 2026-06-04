@@ -679,16 +679,17 @@ textarea.field {
 }
 
 .ribbon-slide {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 3;
+  background: var(--cream-deep);
   flex: 0 0 auto;
-  width: 460px;
+  width: 340px;
   overflow: hidden;
 }
 
 .ribbon-slide img {
   display: block;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -711,7 +712,7 @@ textarea.field {
 
 @media (max-width: 640px) {
   .ribbon-slide {
-    width: 80vw;
+    width: 58vw;
   }
 }
 
