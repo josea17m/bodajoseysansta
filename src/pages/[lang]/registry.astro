@@ -22,10 +22,8 @@ const t = useTranslations(lang);
     <div class="container">
       <div class="section-head">
         <span class="eyebrow muted">{lang === "es" ? "Con cariño" : "With love"}</span>
-        <h1 class="script-title registry-title">
-          <Image src={giftIcon} alt="Gift icon" class="gift-icon" />
-          {lang === "es" ? "Mesa de regalos" : "Registry"}
-        </h1>
+        <Image src={giftIcon} alt="Gift icon" class="gift-icon" />
+        <h1 class="script-title">{lang === "es" ? "Mesa de regalos" : "Registry"}</h1>
         <p>{t("registry.intro1")}</p>
       </div>
 
@@ -55,14 +53,10 @@ const t = useTranslations(lang);
 </Layout>
 
 <style>
-  .registry-title {
-    align-items: center;
-    display: inline-flex;
-    gap: 12px;
-  }
-
   .gift-icon {
-    height: 52px;
+    display: block;
+    height: 64px;
+    margin: 0 auto 8px;
     width: auto;
   }
 </style>
