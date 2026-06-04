@@ -9,14 +9,15 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-// Hero carousel slides. Add/remove entries here to change the carousel.
+// Hero ribbon slides. w/h are the photo's real pixel dimensions so the
+// browser reserves the right width before each image loads (no reflow/jumps).
 const heroSlides = [
-  { image: "/images/js-80.jpg", alt: "Sansta & Jose Ale" },
-  { image: "/images/IMG_6925.jpg", alt: "Sansta & Jose Ale" },
-  { image: "/images/js-79.jpg", alt: "Sansta & Jose Ale" },
-  { image: "/images/js-77.jpg", alt: "Sansta & Jose Ale" },
-  { image: "/images/js-75.jpg", alt: "Sansta & Jose Ale" },
-  { image: "/images/js-87.jpg", alt: "Sansta & Jose Ale" },
+  { image: "/images/js-80.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
+  { image: "/images/IMG_6925.jpg", alt: "Sansta & Jose Ale", w: 741, h: 866 },
+  { image: "/images/js-79.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
+  { image: "/images/js-77.jpg", alt: "Sansta & Jose Ale", w: 2333, h: 3500 },
+  { image: "/images/js-75.jpg", alt: "Sansta & Jose Ale", w: 3500, h: 2333 },
+  { image: "/images/js-87.jpg", alt: "Sansta & Jose Ale", w: 2355, h: 3500 },
 ];
 ---
 
@@ -47,7 +48,7 @@ const heroSlides = [
         {[...heroSlides, ...heroSlides].map((slide) => (
           <div class="ribbon-slide">
             {slide.image ? (
-              <img src={slide.image} alt={slide.alt} loading="eager" decoding="async" />
+              <img src={slide.image} alt={slide.alt} width={slide.w} height={slide.h} loading="eager" decoding="async" />
             ) : (
               <div class="photo-slot">
                 <span class="tag">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
