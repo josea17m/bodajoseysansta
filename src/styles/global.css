@@ -483,6 +483,13 @@ h3 {
   text-align: center;
 }
 
+.rsvp-cta .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
 .flower-banner-wrap {
   text-align: center;
   overflow: hidden;
