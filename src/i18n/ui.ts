@@ -130,7 +130,7 @@ export const ui = {
     // Schedule Page
     "schedule.title": "S C H E D U L E",
     "schedule.intro":
-      "Below is the itinerary for our wedding. We are thrilled to have you join us! Please consider the travel time between the ceremony and the reception.",
+      "Below is the itinerary for our wedding. We are so excited to have you join us! Please consider the travel time between the ceremony and the reception.",
     "schedule.date": "FRIDAY, JULY 24, 2026",
     "schedule.map": "Map",
 
