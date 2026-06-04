@@ -1,6 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import sketchCeremony from "../../assets/sketch-ceremony.png";
+import sketchReception from "../../assets/sketch-reception.png";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
 
 export function getStaticPaths() {
@@ -87,6 +89,7 @@ const rings = photo("IMG_6934.jpg");
 
       <div class="venues">
         <article class="venue card">
+          <Image src={sketchCeremony} alt="Ceremony sketch" class="venue-sketch" />
           <div class="kind eyebrow">{t("home.venue.ceremony.title")}</div>
           <h3>2:00 pm</h3>
           <p class="vname">{t("home.venue.ceremony.name")}</p>
@@ -101,6 +104,7 @@ const rings = photo("IMG_6934.jpg");
           </a>
         </article>
         <article class="venue card">
+          <Image src={sketchReception} alt="Reception sketch" class="venue-sketch" />
           <div class="kind eyebrow">{t("home.venue.reception.title")}</div>
           <h3>5:30 pm</h3>
           <p class="vname">{t("home.venue.reception.name")}</p>

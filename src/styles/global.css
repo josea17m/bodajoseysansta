@@ -817,6 +817,15 @@ textarea.field {
   margin-top: 4px;
 }
 
+.venue .venue-sketch {
+  display: block;
+  height: 140px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  opacity: 0.75;
+  width: auto;
+}
+
 .venue .vlink {
   border-bottom: 1.5px solid var(--blush);
   color: var(--rose);
