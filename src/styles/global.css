@@ -654,20 +654,6 @@ textarea.field {
   margin: 40px auto 0;
   max-width: 1120px;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 6%,
-    #000 94%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 6%,
-    #000 94%,
-    transparent 100%
-  );
 }
 
 .ribbon-track {
@@ -679,25 +665,23 @@ textarea.field {
 }
 
 .ribbon-slide {
-  aspect-ratio: 2 / 3;
-  background: var(--cream-deep);
   flex: 0 0 auto;
-  width: 340px;
+  height: clamp(280px, 40vw, 500px);
   overflow: hidden;
 }
 
 .ribbon-slide img {
   display: block;
   height: 100%;
-  object-fit: contain;
-  width: 100%;
+  object-fit: cover;
+  width: auto;
 }
 
 .ribbon-slide .photo-slot {
+  aspect-ratio: 3 / 4;
   border: none;
   border-radius: 0;
   height: 100%;
-  width: 100%;
 }
 
 @keyframes ribbon-scroll {
@@ -707,12 +691,6 @@ textarea.field {
   to {
     /* la mitad del track = un juego completo de slides (sin gap) */
     transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 640px) {
-  .ribbon-slide {
-    width: 58vw;
   }
 }
 
