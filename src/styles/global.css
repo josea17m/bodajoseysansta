@@ -484,10 +484,16 @@ h3 {
 }
 
 .rsvp-cta .container {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+}
+
+.btn-zoom {
+  font-size: 1rem;
+  padding: 14px 36px;
 }
 
 .flower-banner-wrap {
