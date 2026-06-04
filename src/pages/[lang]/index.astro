@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "../../i18n/utils";
 
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -9,6 +9,7 @@ export function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 // Photos live in src/assets/photos and are optimized at build time by
 // astro:assets (resized + WebP). Look them up by filename.
@@ -117,6 +118,12 @@ const rings = photo("IMG_6934.jpg");
     </div>
   </section>
 
+  <section class="rsvp-cta">
+    <div class="container">
+      <a class="btn btn-primary btn-xl" href={translatePath("/rsvp")}>{t("nav.rsvp")}</a>
+    </div>
+  </section>
+
   <section class="block">
     <div class="container story">
       <div class="media-frame">
@@ -143,7 +150,7 @@ const rings = photo("IMG_6934.jpg");
     }}
   >
     const countdownElement = document.getElementById("countdown");
-    const weddingDate = new Date("2026-07-24T15:30:00-05:00").getTime();
+    const weddingDate = new Date("2026-07-24T14:00:00-05:00").getTime();
 
     function updateCountdown() {
       if (!countdownElement) return;
