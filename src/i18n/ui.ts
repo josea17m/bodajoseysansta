@@ -67,7 +67,7 @@ export const ui = {
     "faq.a1": "Les pedimos amablemente que asistan en atuendo formal.",
     "faq.q2": "¿A qué hora debo llegar a la ceremonia?",
     "faq.a2":
-      "Recomendamos llegar al menos 30 minutos antes de las 3:30 pm para encontrar su asiento antes de que comience la ceremonia.",
+      "Recomendamos llegar al menos 30 minutos antes de las 2:00 pm para encontrar su asiento antes de que comience la ceremonia.",
     "faq.q3": "¿Puedo tomar fotos durante la ceremonia?",
     "faq.a3":
       "Sí, por supuesto. Sin embargo ascerquense a sus asientos para no obstruir la vista ni la labor de nuestros fotógrafos.",
@@ -154,7 +154,7 @@ export const ui = {
     "faq.a1": "We kindly request formal attire.",
     "faq.q2": "What time should I arrive for the ceremony?",
     "faq.a2":
-      "We recommend arriving at least 30 minutes prior to the 3:30 pm start time to find your seat.",
+      "We recommend arriving at least 30 minutes prior to the 2:00 pm start time to find your seat.",
     "faq.q3": "Can I take pictures during the ceremony?",
     "faq.a3":
       "Yes, absolutely. However, please remain seated so as not to obstruct the view or the work of our photographers.",
