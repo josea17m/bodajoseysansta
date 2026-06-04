@@ -3,6 +3,15 @@ import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
+import ladies1 from "../../assets/attire-ladies-1.jpg";
+import ladies2 from "../../assets/attire-ladies-2.jpg";
+import ladies3 from "../../assets/attire-ladies-3.jpg";
+import ladies4 from "../../assets/attire-ladies-4.jpg";
+import ladies5 from "../../assets/attire-ladies-5.jpg";
+import ladies6 from "../../assets/attire-ladies-6.jpg";
+import ladies8 from "../../assets/attire-ladies-8.jpg";
+import ladies9 from "../../assets/attire-ladies-9.jpg";
+
 export function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
 }
@@ -10,7 +19,8 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const attireImages: any[] = [];
+const ladiesImages = [ladies1, ladies2, ladies3, ladies4, ladies5, ladies6, ladies8, ladies9];
+const gentsImages: any[] = [];
 ---
 
 <Layout title={`${lang === "es" ? "Vestimenta" : "Attire"} · Sansta & Jose Ale`}>
@@ -56,19 +66,33 @@ const attireImages: any[] = [];
         </div>
       </div>
 
-      <!-- Inspiration Images -->
-      {attireImages.length > 0 && (
-        <div class="attire-section">
-          <h2 class="attire-heading">{lang === "es" ? "Inspiración" : "Inspiration"}</h2>
+      <!-- Ladies -->
+      <div class="attire-section">
+        <h2 class="attire-heading">♡ {lang === "es" ? "Damas" : "Ladies"}</h2>
+        <div class="attire-grid">
+          {ladiesImages.map((img, i) => (
+            <div class="attire-item">
+              <Image src={img} alt={`Ladies attire inspiration ${i + 1}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Gents -->
+      <div class="attire-section">
+        <h2 class="attire-heading">♡ {lang === "es" ? "Caballeros" : "Gentlemen"}</h2>
+        {gentsImages.length > 0 ? (
           <div class="attire-grid">
-            {attireImages.map((img, i) => (
+            {gentsImages.map((img, i) => (
               <div class="attire-item">
-                <Image src={img} alt={`Attire inspiration ${i + 1}`} loading="lazy" />
+                <Image src={img} alt={`Gents attire inspiration ${i + 1}`} loading="lazy" />
               </div>
             ))}
           </div>
-        </div>
-      )}
+        ) : (
+          <p class="coming-soon">{lang === "es" ? "Fotos próximamente..." : "Photos coming soon..."}</p>
+        )}
+      </div>
 
     </div>
   </section>
@@ -119,6 +143,12 @@ const attireImages: any[] = [];
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  .coming-soon {
+    color: var(--ink-soft);
+    font-style: italic;
+    text-align: center;
   }
 
   .attire-item img {
