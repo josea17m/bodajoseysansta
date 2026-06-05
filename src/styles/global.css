@@ -908,11 +908,40 @@ textarea.field {
   text-transform: uppercase;
 }
 
+.story-perspectives {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 8px;
+}
+
+.story-perspective {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.story-name {
+  color: var(--rose);
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
 .story-text {
   color: var(--ink-soft);
   font-size: 0.97rem;
   line-height: 1.6;
   margin: 0;
+}
+
+@media (max-width: 520px) {
+  .story-perspectives {
+    grid-template-columns: 1fr;
+  }
 }
 
 .story .pull {

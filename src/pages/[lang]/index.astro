@@ -151,16 +151,25 @@ const rings = photo("IMG_6934.jpg");
         <p class="story-intro">{t("home.story.intro")}</p>
         <div class="story-timeline">
           {[
-            { date: t("home.story.d1.date"), text: t("home.story.d1.text") },
-            { date: t("home.story.d2.date"), text: t("home.story.d2.text") },
-            { date: t("home.story.d3.date"), text: t("home.story.d3.text") },
-            { date: t("home.story.d4.date"), text: t("home.story.d4.text") },
-            { date: t("home.story.d5.date"), text: t("home.story.d5.text") },
-            { date: t("home.story.d6.date"), text: t("home.story.d6.text") },
+            { date: t("home.story.d1.date"), sansta: t("home.story.d1.sansta"), jose: t("home.story.d1.jose") },
+            { date: t("home.story.d2.date"), sansta: t("home.story.d2.sansta"), jose: t("home.story.d2.jose") },
+            { date: t("home.story.d3.date"), sansta: t("home.story.d3.sansta"), jose: t("home.story.d3.jose") },
+            { date: t("home.story.d4.date"), sansta: t("home.story.d4.sansta"), jose: t("home.story.d4.jose") },
+            { date: t("home.story.d5.date"), sansta: t("home.story.d5.sansta"), jose: t("home.story.d5.jose") },
+            { date: t("home.story.d6.date"), sansta: t("home.story.d6.sansta"), jose: t("home.story.d6.jose") },
           ].map((item) => (
             <div class="story-entry">
               <span class="story-date">{item.date}</span>
-              <p class="story-text">{item.text}</p>
+              <div class="story-perspectives">
+                <div class="story-perspective">
+                  <span class="story-name">Sansta</span>
+                  <p class="story-text">{item.sansta}</p>
+                </div>
+                <div class="story-perspective">
+                  <span class="story-name">Jose Ale</span>
+                  <p class="story-text">{item.jose}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
