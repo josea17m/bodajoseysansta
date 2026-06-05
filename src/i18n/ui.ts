@@ -73,6 +73,21 @@ export const ui = {
     "faq.q3": "¿Puedo tomar fotos durante la ceremonia?",
     "faq.a3":
       "Sí, por supuesto. Sin embargo ascerquense a sus asientos para no obstruir la vista ni la labor de nuestros fotógrafos.",
+    "faq.q4": "¿Dónde estacionamos en el lugar de la recepción?",
+    "faq.a4":
+      "Habrá servicio de valet parking al llegar al venue (The Juliana). El estacionamiento donde se guardarán los autos está muy cerca del venue.",
+    "faq.q5": "¿Habrá alcohol?",
+    "faq.a5":
+      "No habrá alcohol en nuestra boda. Por política del venue, no se permite traer licor externo. Por favor respeten esta regla. (No se permiten bebidas alcohólicas personales ni botellas.)",
+    "faq.q6": "¿Se servirá cena?",
+    "faq.a6":
+      "¡Sí! Habrá aperitivos, snacks, postre y cena. :)",
+    "faq.q7": "¿Cuándo debo confirmar mi asistencia?",
+    "faq.a7":
+      "Por favor confirma tu asistencia antes del 5 de julio, ya que necesitamos el número final de invitados para los proveedores. Si no has confirmado para esa fecha, asumiremos que no asistirás. ¡Gracias!",
+    "faq.q8": "¿Puedo traer un acompañante?",
+    "faq.a8":
+      "Lamentablemente solo podemos acomodar el número de invitados indicado en tu invitación y confirmación. Gracias por entender.",
 
     // RSVP Page
     "rsvp.title": "C O N F I R M A R   A S I S T E N C I A",
@@ -162,6 +177,21 @@ export const ui = {
     "faq.q3": "Can I take pictures during the ceremony?",
     "faq.a3":
       "Yes, absolutely. However, please remain seated so as not to obstruct the view or the work of our photographers.",
+    "faq.q4": "Where do we park at the venue?",
+    "faq.a4":
+      "There will be Valet parking once you arrive at the venue (The Juliana). The parking lot where all cars will be parked is very close to the venue.",
+    "faq.q5": "Alcohol?",
+    "faq.a5":
+      "We will not be serving any alcohol at our wedding. Due to venue policy, no outside liquor is allowed to be brought into the venue, please be respectful of this. (No personal alcoholic drinks or bottles allowed to be brought in)",
+    "faq.q6": "Will Dinner be served?",
+    "faq.a6":
+      "Yes! We will be having appetizers, snacks, dessert, and dinner. :)",
+    "faq.q7": "When do I need to RSVP by?",
+    "faq.a7":
+      "Please RSVP no later than July 5th, as we need to finalize the guest count to have an accurate number for vendors. If you have not RSVP'd by that date, we will assume you are not attending. Thank you!",
+    "faq.q8": "Can I bring a guest?",
+    "faq.a8":
+      "Unfortunately we are only able to accommodate the number of guests listed on your invitation and RSVP. Thank you for understanding.",
 
     // RSVP Page
     "rsvp.title": "R S V P",
