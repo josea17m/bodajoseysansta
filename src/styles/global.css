@@ -911,7 +911,7 @@ textarea.field {
 .story-perspectives {
   display: grid;
   gap: 12px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   margin-top: 8px;
 }
 
@@ -938,11 +938,6 @@ textarea.field {
   margin: 0;
 }
 
-@media (max-width: 520px) {
-  .story-perspectives {
-    grid-template-columns: 1fr;
-  }
-}
 
 .story .pull {
   color: var(--rose);
