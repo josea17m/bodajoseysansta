@@ -957,6 +957,16 @@ textarea.field {
   margin-top: 4px;
 }
 
+.tl-map {
+  border-bottom: 1.5px solid var(--blush);
+  color: var(--rose);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 6px;
+  padding-bottom: 2px;
+}
+
 .reg-grid {
   display: grid;
   gap: 22px;
