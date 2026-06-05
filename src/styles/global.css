@@ -882,6 +882,39 @@ textarea.field {
   margin-top: 16px;
 }
 
+.story-intro {
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.story-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.story-entry {
+  border-left: 2px solid var(--blush);
+  padding-left: 14px;
+}
+
+.story-date {
+  color: var(--rose);
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.story-text {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .story .pull {
   color: var(--rose);
   font-family: "Caveat", cursive;
