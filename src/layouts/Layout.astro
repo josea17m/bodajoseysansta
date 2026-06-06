@@ -138,33 +138,40 @@ const isActive = (path: string) => currentPath === path;
         // Ignore storage errors so the page still renders normally.
       }
 
-      // Popup de idioma: aparece solo si el usuario aún no ha elegido
+      // Popup de idioma: aparece UNA VEZ por visita (sesión del navegador).
+      // No reaparece al navegar entre páginas dentro de la misma visita,
+      // pero sí vuelve a mostrarse cada vez que entran de nuevo al sitio.
       const langModal = document.getElementById("langModal");
-      let alreadyChosen = null;
+      let askedThisVisit = null;
       try {
-        alreadyChosen = localStorage.getItem("langChosen");
+        askedThisVisit = sessionStorage.getItem("langAsked");
       } catch {
-        alreadyChosen = null;
+        askedThisVisit = null;
       }
 
-      if (!alreadyChosen && langModal) {
-        langModal.hidden = false;
-        document.body.classList.add("modal-open");
-      }
-
-      const markChosen = (l) => {
+      const markAsked = () => {
         try {
-          localStorage.setItem("langChosen", "1");
-          localStorage.setItem("preferredLang", l);
+          sessionStorage.setItem("langAsked", "1");
         } catch {
-          // continuar aunque falle el storage
+          // ignore
         }
       };
+
+      if (!askedThisVisit && langModal) {
+        langModal.hidden = false;
+        document.body.classList.add("modal-open");
+        markAsked();
+      }
 
       langModal?.querySelectorAll("[data-lang-pick]").forEach((btn) => {
         btn.addEventListener("click", (e) => {
           const picked = btn.getAttribute("data-lang-pick");
-          markChosen(picked);
+          markAsked();
+          try {
+            localStorage.setItem("preferredLang", picked);
+          } catch {
+            // ignore
+          }
           // Si ya está en ese idioma, solo cerrar (sin recargar)
           if (picked === currentLang) {
             e.preventDefault();
@@ -176,14 +183,9 @@ const isActive = (path: string) => currentPath === path;
       });
 
       // Si cambian el idioma con el switch ES/EN, no volver a preguntar
+      // durante esta misma visita.
       document.querySelectorAll("[data-lang-switch]").forEach((a) => {
-        a.addEventListener("click", () => {
-          try {
-            localStorage.setItem("langChosen", "1");
-          } catch {
-            // ignore
-          }
-        });
+        a.addEventListener("click", markAsked);
       });
 
       const menuBtn = document.getElementById("menuBtn");
