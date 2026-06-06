@@ -77,8 +77,8 @@ const isActive = (path: string) => currentPath === path;
               </a>
             ))}
             <span class="nav lang-nav" aria-label="Language">
-              <a href={translatePath(currentPath, "es")} class:list={[lang === "es" && "active"]}>ES</a>
-              <a href={translatePath(currentPath, "en")} class:list={[lang === "en" && "active"]}>EN</a>
+              <a href={translatePath(currentPath, "es")} data-lang-switch class:list={[lang === "es" && "active"]}>ES</a>
+              <a href={translatePath(currentPath, "en")} data-lang-switch class:list={[lang === "en" && "active"]}>EN</a>
             </span>
           </nav>
           <button class="menu-btn" id="menuBtn" aria-label={t("nav.openMenu")} aria-controls="mobileNav" aria-expanded="false">
@@ -94,8 +94,8 @@ const isActive = (path: string) => currentPath === path;
               {item.label}
             </a>
           ))}
-          <a href={translatePath(currentPath, "es")} class:list={[lang === "es" && "active"]}>ES</a>
-          <a href={translatePath(currentPath, "en")} class:list={[lang === "en" && "active"]}>EN</a>
+          <a href={translatePath(currentPath, "es")} data-lang-switch class:list={[lang === "es" && "active"]}>ES</a>
+          <a href={translatePath(currentPath, "en")} data-lang-switch class:list={[lang === "en" && "active"]}>EN</a>
         </nav>
       </header>
 
@@ -117,12 +117,74 @@ const isActive = (path: string) => currentPath === path;
         </div>
       </footer>
     </div>
+
+    <div class="lang-modal" id="langModal" role="dialog" aria-modal="true" aria-labelledby="langModalTitle" hidden>
+      <div class="lang-modal-card">
+        <p class="lm-eyebrow">Welcome &middot; Bienvenidos</p>
+        <h2 class="lm-title" id="langModalTitle">Sansta &amp; Jose Ale</h2>
+        <p class="lm-sub">Please choose your language<br />Por favor elige tu idioma</p>
+        <div class="lm-actions">
+          <a class="lm-btn lm-primary" href={translatePath(currentPath, "en")} data-lang-pick="en">English</a>
+          <a class="lm-btn lm-ghost" href={translatePath(currentPath, "es")} data-lang-pick="es">Español</a>
+        </div>
+      </div>
+    </div>
+
     <script define:vars={{ currentLang: lang }}>
+      // Recordar el idioma visitado para la redirección de la raíz "/"
       try {
         localStorage.setItem("preferredLang", currentLang);
       } catch {
         // Ignore storage errors so the page still renders normally.
       }
+
+      // Popup de idioma: aparece solo si el usuario aún no ha elegido
+      const langModal = document.getElementById("langModal");
+      let alreadyChosen = null;
+      try {
+        alreadyChosen = localStorage.getItem("langChosen");
+      } catch {
+        alreadyChosen = null;
+      }
+
+      if (!alreadyChosen && langModal) {
+        langModal.hidden = false;
+        document.body.classList.add("modal-open");
+      }
+
+      const markChosen = (l) => {
+        try {
+          localStorage.setItem("langChosen", "1");
+          localStorage.setItem("preferredLang", l);
+        } catch {
+          // continuar aunque falle el storage
+        }
+      };
+
+      langModal?.querySelectorAll("[data-lang-pick]").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const picked = btn.getAttribute("data-lang-pick");
+          markChosen(picked);
+          // Si ya está en ese idioma, solo cerrar (sin recargar)
+          if (picked === currentLang) {
+            e.preventDefault();
+            langModal.hidden = true;
+            document.body.classList.remove("modal-open");
+          }
+          // Si es el otro idioma, el enlace navega normalmente
+        });
+      });
+
+      // Si cambian el idioma con el switch ES/EN, no volver a preguntar
+      document.querySelectorAll("[data-lang-switch]").forEach((a) => {
+        a.addEventListener("click", () => {
+          try {
+            localStorage.setItem("langChosen", "1");
+          } catch {
+            // ignore
+          }
+        });
+      });
 
       const menuBtn = document.getElementById("menuBtn");
       const mobileNav = document.getElementById("mobileNav");

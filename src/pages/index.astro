@@ -8,180 +8,22 @@ import { defaultLang } from "../i18n/ui";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sansta &amp; Jose Ale</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Nunito:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
     <script define:vars={{ defaultLang }}>
-      // Si ya eligió idioma antes, ir directo sin mostrar el selector.
+      // Redirige al idioma ya visitado, o al inglés por defecto.
+      // La pregunta de idioma (popup) la maneja el Layout en la página destino.
       const supported = new Set(["es", "en"]);
-      let stored = null;
+      let pref = null;
       try {
-        stored = localStorage.getItem("preferredLang");
+        pref = localStorage.getItem("preferredLang");
       } catch {
-        stored = null;
+        pref = null;
       }
-      if (stored && supported.has(stored)) {
-        window.location.replace(`/${stored}/`);
-      } else {
-        document.addEventListener("DOMContentLoaded", () => {
-          document.body.classList.add("ready");
-          document.querySelectorAll("[data-lang]").forEach((btn) => {
-            btn.addEventListener("click", () => {
-              const lang = btn.getAttribute("data-lang");
-              try {
-                localStorage.setItem("preferredLang", lang);
-              } catch {
-                // si falla el storage, igual continuamos
-              }
-              window.location.replace(`/${lang}/`);
-            });
-          });
-        });
-      }
+      const target = pref && supported.has(pref) ? pref : defaultLang;
+      window.location.replace(`/${target}/`);
     </script>
-    <style>
-      :root {
-        --cream: #fbf4e8;
-        --paper: #fffdf8;
-        --ink: #4b4038;
-        --ink-soft: #6e6258;
-        --rose: #b25e72;
-        --rose-deep: #97485b;
-        --line: #ece3d4;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        height: 100%;
-      }
-      /* Oculto hasta que el script decida (evita parpadeo al redirigir) */
-      body {
-        visibility: hidden;
-        font-family: "Nunito", system-ui, sans-serif;
-        color: var(--ink);
-        background:
-          radial-gradient(
-            1000px 500px at 80% -10%,
-            rgba(243, 205, 212, 0.4),
-            transparent 60%
-          ),
-          radial-gradient(
-            800px 450px at -10% 30%,
-            rgba(197, 211, 192, 0.35),
-            transparent 55%
-          ),
-          var(--cream);
-      }
-      body.ready {
-        visibility: visible;
-      }
-      .wrap {
-        min-height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-      }
-      .card {
-        background: var(--paper);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        box-shadow: 0 18px 50px rgba(75, 64, 56, 0.12);
-        max-width: 440px;
-        width: 100%;
-        padding: 44px 34px;
-        text-align: center;
-      }
-      .eyebrow {
-        text-transform: uppercase;
-        letter-spacing: 0.28em;
-        font-size: 0.72rem;
-        font-weight: 700;
-        color: var(--ink-soft);
-        opacity: 0.8;
-      }
-      .title {
-        font-family: "Caveat", cursive;
-        font-size: 2.6rem;
-        color: var(--rose);
-        margin: 10px 0 6px;
-        line-height: 1.05;
-      }
-      .sub {
-        font-size: 0.95rem;
-        color: var(--ink-soft);
-        margin: 0 0 28px;
-      }
-      .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .btn {
-        font-family: inherit;
-        font-size: 1rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        padding: 15px 18px;
-        border-radius: 12px;
-        cursor: pointer;
-        border: 1px solid var(--rose);
-        transition:
-          transform 0.15s ease,
-          background 0.2s ease,
-          color 0.2s ease;
-      }
-      .btn-primary {
-        background: var(--rose);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: var(--rose-deep);
-        transform: translateY(-1px);
-      }
-      .btn-ghost {
-        background: transparent;
-        color: var(--rose-deep);
-      }
-      .btn-ghost:hover {
-        background: rgba(178, 94, 114, 0.08);
-        transform: translateY(-1px);
-      }
-      .heart {
-        color: var(--rose);
-        opacity: 0.7;
-        margin-top: 22px;
-        font-size: 1rem;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrap">
-      <div class="card">
-        <p class="eyebrow">Welcome &middot; Bienvenidos</p>
-        <h1 class="title">Sansta &amp; Jose Ale</h1>
-        <p class="sub">
-          Please choose your language<br />Por favor elige tu idioma
-        </p>
-        <div class="actions">
-          <button class="btn btn-primary" type="button" data-lang="en">
-            English
-          </button>
-          <button class="btn btn-ghost" type="button" data-lang="es">
-            Español
-          </button>
-        </div>
-        <p class="heart">&#9825;</p>
-      </div>
-    </main>
     <noscript>
       <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`} />
     </noscript>
-  </body>
+  </head>
+  <body></body>
 </html>
