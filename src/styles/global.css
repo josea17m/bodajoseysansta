@@ -478,6 +478,34 @@ h3 {
   padding: 20px 64px;
 }
 
+.story-bible-verse {
+  border-top: 1px solid var(--blush);
+  margin-top: 32px;
+  padding-top: 28px;
+  text-align: center;
+}
+
+.story-bible-text {
+  color: var(--ink-soft);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.story-bible-text strong {
+  color: var(--rose-deep);
+  font-style: italic;
+}
+
+.story-bible-ref {
+  color: var(--ink-faint);
+  display: block;
+  font-size: 0.88rem;
+  margin-top: 10px;
+}
+
 .bible-verse {
   padding: 32px 24px 24px;
   text-align: center;
