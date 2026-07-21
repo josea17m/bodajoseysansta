@@ -33,11 +33,20 @@ const t = useTranslations(lang);
         </p>
         <p class="zoom-message">
           {lang === "es"
-            ? "El enlace de Zoom estará disponible aquí el día de la boda. ¡Vuelve el 24 de julio de 2026!"
-            : "The Zoom link will be available right here on the wedding day. Check back on July 24, 2026!"}
+            ? "Únete a la ceremonia el 24 de julio de 2026 a las 2:00 pm (hora de Houston) con el siguiente enlace:"
+            : "Join the ceremony on July 24, 2026 at 2:00 pm (Houston time) using the link below:"}
         </p>
-        <div class="zoom-placeholder">
-          <span>{lang === "es" ? "Enlace disponible el 24 de julio" : "Link available on July 24"}</span>
+        <a
+          class="btn zoom-join-btn"
+          href="https://us06web.zoom.us/j/7038363054?pwd=9BweTYA9OKqz6DT3gdnJ5Z23RBSwzv.1&omn=85325058866"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {lang === "es" ? "Unirse al Zoom" : "Join Zoom"}
+        </a>
+        <div class="zoom-details">
+          <p><span>{lang === "es" ? "ID de reunión" : "Meeting ID"}:</span> 703 836 3054</p>
+          <p><span>{lang === "es" ? "Código de acceso" : "Passcode"}:</span> 240726</p>
         </div>
       </div>
 
@@ -66,13 +75,25 @@ const t = useTranslations(lang);
     margin-bottom: 16px;
   }
 
-  .zoom-placeholder {
-    margin-top: 32px;
+  .zoom-join-btn {
+    margin-top: 16px;
+  }
+
+  .zoom-details {
+    margin-top: 28px;
     padding: 18px 32px;
-    border: 1.5px dashed var(--blush);
+    border: 1.5px solid var(--blush);
     border-radius: 12px;
     color: var(--ink-soft);
-    font-style: italic;
     font-size: 0.95rem;
+    display: inline-block;
+  }
+
+  .zoom-details p {
+    margin: 4px 0;
+  }
+
+  .zoom-details span {
+    font-weight: 600;
   }
 </style>
